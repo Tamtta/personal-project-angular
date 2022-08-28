@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
+import { IUser } from '../auth.interface';
+import { passwordValidator } from '../password-validator';
 import { AccountService } from '../services/account.service';
 
 @Component({
@@ -11,32 +13,42 @@ import { AccountService } from '../services/account.service';
 })
 export class RegisterComponent implements OnInit {
   form!: FormGroup;
-  loading = false;
+  // loading = false;
   submitted = false;
 
   constructor(
-    private formBuilder: FormBuilder,
     private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
     private router: Router,
     private accountService: AccountService // private alertService: AlertService
   ) {}
 
   ngOnInit() {
-    this.form = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      username: [
-        '',
-        [Validators.required, Validators.pattern(/^[a-zA-Z0-9-]+$/)],
-      ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{7,}$/),
+    this.form = this.formBuilder.group(
+      {
+        name: ['', Validators.required],
+        mail: ['', [Validators.required, Validators.email]],
+        username: [
+          '',
+          [Validators.required, Validators.pattern(/^[a-zA-Z0-9-]+$/)],
         ],
-      ],
-    });
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{7,}$/),
+          ],
+        ],
+        confirm: [
+          '',
+          [
+            Validators.required,
+            Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{7,}$/),
+          ],
+        ],
+      },
+      { validators: passwordValidator }
+    );
   }
 
   // convenience getter for easy access to form fields
@@ -47,29 +59,18 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    // reset alerts on submit
-    // this.alertService.clear();
-
-    // stop here if form is invalid
     if (this.form.invalid) {
       return;
     }
 
-    this.loading = true;
+    // this.loading = true;
+    // console.log(this.f);
+
     this.accountService
       .register(this.form.value)
       .pipe(first())
-      .subscribe
-      // () => {
-      //   this.alertService.success('Registration successful', {
-      //     keepAfterRouteChange: true,
-      //   });
-      //   this.router.navigate(['../login'], { relativeTo: this.route });
-      // },
-      // (error) => {
-      //   this.alertService.error(error);
-      //   this.loading = false;
-      // }
-      ();
+      .subscribe(() => {
+        this.router.navigate(['../login'], { relativeTo: this.route });
+      });
   }
 }

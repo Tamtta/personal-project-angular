@@ -1,3 +1,12 @@
 {
-  "users": []
+  "users": [
+    {
+      "name": "weee",
+      "mail": "jojua.tamta99@gmail.com",
+      "username": "wee-",
+      "password": "1234567y",
+      "confirm": "1234567y",
+      "id": 1
+    }
+  ]
 }

@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { IUser } from '../auth.interface';
-import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
   private mainUrl = 'http://localhost:3000/';
   private userSubject: BehaviorSubject<IUser>;
   public user: Observable<IUser>;
+  // public users: IUser[] = [];
 
   constructor(private router: Router, private http: HttpClient) {
     this.userSubject = new BehaviorSubject<IUser>(
@@ -19,44 +18,28 @@ export class AccountService {
     this.user = this.userSubject.asObservable();
   }
 
-  // public get userValue(): IUser {
-  //   return this.userSubject.value;
-  // }
+  public get userValue(): IUser {
+    return this.userSubject.value;
+  }
 
-  // login(username, password) {
-  //   return this.http
-  //     .post<IUser>(`${environment.apiUrl}/users/authenticate`, {
-  //       username,
-  //       password,
-  //     })
-  //     .pipe(
-  //       map((user) => {
-  //         // store user details and jwt token in local storage to keep user logged in between page refreshes
-  //         localStorage.setItem('user', JSON.stringify(user));
-  //         this.userSubject.next(user);
-  //         return user;
-  //       })
-  //     );
-  // }
-
-  // logout() {
-  //   // remove user from local storage and set current user to null
-  //   localStorage.removeItem('user');
-  //   this.userSubject.next(null);
-  //   this.router.navigate(['/account/login']);
-  // }
+  logout() {
+    // remove user from local storage and set current user to null
+    localStorage.removeItem('user');
+    // this.userSubject.next(null);
+    this.router.navigate(['login']);
+  }
 
   register(user: IUser) {
-    return this.http.post(`${this.mainUrl}/users`, user);
+    return this.http.post(`${this.mainUrl}users`, user);
   }
 
-  getAll() {
-    return this.http.get<IUser[]>(`${this.mainUrl}/users`);
+  getAll(): Observable<IUser[]> {
+    return this.http.get<IUser[]>(`${this.mainUrl}users`);
   }
 
-  // getById(id: string) {
-  //   return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
-  // }
+  getById(id: string) {
+    return this.http.get<IUser>(`${this.mainUrl}users/${id}`);
+  }
 
   // update(id, params) {
   //   return this.http.put(`${environment.apiUrl}/users/${id}`, params).pipe(

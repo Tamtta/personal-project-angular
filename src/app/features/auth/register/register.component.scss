@@ -1,0 +1,124 @@
+.nav {
+  margin: 0 auto 50px auto;
+  // width: 500px;
+  display: flex;
+  justify-content: center;
+  background-color: #2ecc706f;
+
+  h1 {
+    display: inline-block;
+    padding: 0 20px;
+
+    &:first-child {
+      border-right: 2px solid black;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+
+      &.register {
+        font-weight: 900;
+      }
+    }
+  }
+}
+
+.box {
+  margin: 0 auto;
+  width: 650px;
+
+  h1 {
+    text-align: center;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      width: 120px;
+    }
+
+    input {
+      border: 0;
+      background: none;
+      display: block;
+      margin: 10px auto;
+      text-align: center;
+      border: 2px solid #3498db;
+      padding: 14px 10px;
+      width: 200px;
+      outline: none;
+      color: black;
+      border-radius: 24px;
+      transition: 0.25s;
+
+      &:focus {
+        width: 280px;
+        border-color: #2ecc71;
+      }
+    }
+
+    .alert-div {
+      width: 120px;
+      height: 20px;
+      // background-color: #2ecc71;
+
+      .alert {
+        padding: 3px;
+        padding-top: 5px;
+        font-size: 10px;
+        display: inline-block;
+        animation: 2s alertAnim forwards;
+        border-radius: 10px;
+        margin: 5px;
+        color: red;
+      }
+    }
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+
+    .button {
+      border: 0;
+      background: none;
+      display: block;
+      margin: 20px 10px;
+      text-align: center;
+      border: 2px solid #2ecc71;
+      padding: 14px 40px;
+      outline: none;
+      border-radius: 24px;
+      transition: 0.25s;
+      cursor: pointer;
+      margin-top: 30px;
+      margin-bottom: -5px;
+
+      &:hover {
+        background: #2ecc71;
+      }
+
+      &:disabled {
+        cursor: auto;
+      }
+
+      &.cancel-btn {
+        border: 2px solid #cc2e2e;
+        margin-right: 30px;
+
+        &:hover {
+          background: #cc2e2e;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}

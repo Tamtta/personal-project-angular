@@ -1,1 +1,41 @@
-<p>log-in works!</p>
+<div class="nav">
+  <h1>
+    <a routerLink="../login" class="login">Login</a>
+  </h1>
+  <h1>
+    <a routerLink="../register">Register</a>
+  </h1>
+</div>
+
+<div class="box">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <p>Username</p>
+      <input
+        type="text"
+        formControlName="username"
+        placeholder="Choose username"
+      />
+      <div class="alert-div">
+        <!-- <p *ngIf="!userLogged">Username or password is inccorect</p> -->
+        <!-- <p *ngIf="form.value.username.valid" class="alert">
+          Format is inccorect
+        </p> -->
+      </div>
+    </div>
+
+    <div>
+      <p>Password</p>
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Enter password"
+      />
+      <div class="alert-div"></div>
+    </div>
+
+    <div class="btn-container">
+      <button class="button">Log in</button>
+    </div>
+  </form>
+</div>
