@@ -1,7 +1,17 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BehaviorSubject, first, map, tap } from 'rxjs';
+import {
+  BehaviorSubject,
+  catchError,
+  debounceTime,
+  first,
+  map,
+  Observable,
+  tap,
+  throwError,
+} from 'rxjs';
 import { IUser } from '../auth.interface';
 import { AccountService } from '../services/account.service';
 
@@ -14,7 +24,8 @@ export class LogInComponent implements OnInit {
   form!: FormGroup;
   submitted = false;
   users: IUser[] = [];
-  userLogged: boolean = true;
+  incorrectPassw: boolean = false;
+  userExist: boolean = true;
   public usersSubject: BehaviorSubject<IUser[]> = new BehaviorSubject(
     <IUser[]>[]
   );
@@ -27,17 +38,8 @@ export class LogInComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      username: [
-        '',
-        [Validators.required, Validators.pattern(/^[a-zA-Z0-9-]+$/)],
-      ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{7,}$/),
-        ],
-      ],
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
 
     this.getUsers();
@@ -50,7 +52,6 @@ export class LogInComponent implements OnInit {
       .subscribe((res) => console.log(res));
   }
 
-  // convenience getter for easy access to form fields
   get f() {
     return this.form.controls;
   }
@@ -61,29 +62,68 @@ export class LogInComponent implements OnInit {
       return;
     }
 
-    const index1 = this.users.findIndex(
-      (p) => p.username == this.form.value.username
-    );
-    const usernameIndex = this.users[index1];
+    let index1;
+    let usernameIndex;
+    let index2;
+    let usernamePass;
 
-    const index2 = this.users.findIndex(
-      (p) => p.password == this.form.value.password
-    );
-    const usernamePass = this.users[index2];
+    if (
+      this.users.findIndex((p) => p.username == this.form.value.username) == -1
+    ) {
+      console.log('wee 1');
+      this.userExist = false;
+    } else if (
+      this.users.findIndex((p) => p.username == this.form.value.username)
+    ) {
+      console.log('wee 2');
+      this.userExist = true;
+    } else if (
+      this.users.findIndex((p) => p.password == this.form.value.password) == -1
+    ) {
+      console.log('wee 3');
+      this.incorrectPassw = true;
+    } else if (
+      this.users.findIndex((p) => p.password == this.form.value.password)
+    ) {
+      console.log('wee 4');
+      this.incorrectPassw = false;
+    } else if (
+      this.users.findIndex((p) => p.username == this.form.value.username) ==
+      this.users.findIndex((p) => p.password == this.form.value.password)
+    ) {
+      console.log('wee 5');
+      index1 = this.users.findIndex(
+        (p) => p.username == this.form.value.username
+      );
+      usernameIndex = this.users[index1];
 
-    if (index1 == index2) {
+      index2 = this.users.findIndex(
+        (p) => p.password == this.form.value.password
+      );
+      usernamePass = this.users[index2];
+
       this.accountService
-        .getById(usernamePass.id)
+        .getById(usernamePass.id || usernameIndex.id)
         .pipe(
           map((user) => {
             localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('username', JSON.stringify(user.username));
             console.log(localStorage);
             this.router.navigate(['../dashboard']);
+          }),
+          catchError((err: HttpErrorResponse) => {
+            if (err.status == 400) {
+              alert(err.statusText);
+            } else if (err.status == 404) {
+              alert(err.statusText);
+            }
+
+            return throwError(() => new Error('err.statusText'));
           })
         )
         .subscribe();
     } else {
-      this.userLogged = false;
+      console.log('something is wrong');
     }
   }
 }

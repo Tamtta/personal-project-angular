@@ -17,10 +17,7 @@
         placeholder="Choose username"
       />
       <div class="alert-div">
-        <!-- <p *ngIf="!userLogged">Username or password is inccorect</p> -->
-        <!-- <p *ngIf="form.value.username.valid" class="alert">
-          Format is inccorect
-        </p> -->
+        <p *ngIf="!userExist" class="alert">User does not exist</p>
       </div>
     </div>
 
@@ -31,7 +28,9 @@
         formControlName="password"
         placeholder="Enter password"
       />
-      <div class="alert-div"></div>
+      <div class="alert-div">
+        <p *ngIf="incorrectPassw" class="alert">Password is incorrect</p>
+      </div>
     </div>
 
     <div class="btn-container">

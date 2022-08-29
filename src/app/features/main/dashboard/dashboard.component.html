@@ -1,2 +1,32 @@
-<p>dashboard works!</p>
-<button (click)="logOut()">log out</button>
+<div class="nav">
+  <div>
+    <h1>
+      <a routerLink="user">User</a>
+    </h1>
+    <h1>
+      <a routerLink="../register">Notes</a>
+    </h1>
+    <h1>
+      <a routerLink="../register">Books</a>
+    </h1>
+  </div>
+
+  <div>
+    <button (click)="logOut()"><h1>log out</h1></button>
+  </div>
+</div>
+<!-- <button (click)="function()">we</button> -->
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+
+<div class="content">
+  <div class="content__container">
+    <p class="content__container__text">Hello</p>
+
+    <ul class="content__container__list">
+      <li class="content__container__list__item">world !</li>
+      <li class="content__container__list__item">{{ username }} !</li>
+      <li class="content__container__list__item">users !</li>
+      <li class="content__container__list__item">everybody !</li>
+    </ul>
+  </div>
+</div>

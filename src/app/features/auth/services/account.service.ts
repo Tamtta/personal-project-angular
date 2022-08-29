@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { IUser } from '../auth.interface';
 
@@ -25,6 +25,7 @@ export class AccountService {
   logout() {
     // remove user from local storage and set current user to null
     localStorage.removeItem('user');
+    localStorage.removeItem('username');
     // this.userSubject.next(null);
     this.router.navigate(['login']);
   }
@@ -37,26 +38,26 @@ export class AccountService {
     return this.http.get<IUser[]>(`${this.mainUrl}users`);
   }
 
-  getById(id: string) {
+  getById(id: string): Observable<IUser> {
     return this.http.get<IUser>(`${this.mainUrl}users/${id}`);
   }
 
-  // update(id, params) {
-  //   return this.http.put(`${environment.apiUrl}/users/${id}`, params).pipe(
-  //     map((x) => {
-  //       // update stored user if the logged in user updated their own record
-  //       if (id == this.userValue.id) {
-  //         // update local storage
-  //         const user = { ...this.userValue, ...params };
-  //         localStorage.setItem('user', JSON.stringify(user));
+  update(id: string, params: IUser) {
+    return this.http.put(`${this.mainUrl}users/${id}`, params).pipe(
+      map((x) => {
+        // update stored user if the logged in user updated their own record
+        if (id == this.userValue.id) {
+          // update local storage
+          const user = { ...this.userValue, ...params };
+          localStorage.setItem('user', JSON.stringify(user));
 
-  //         // publish updated user to subscribers
-  //         this.userSubject.next(user);
-  //       }
-  //       return x;
-  //     })
-  //   );
-  // }
+          // publish updated user to subscribers
+          this.userSubject.next(user);
+        }
+        return x;
+      })
+    );
+  }
 
   // delete(id: string) {
   //   return this.http.delete(`${environment.apiUrl}/users/${id}`).pipe(
