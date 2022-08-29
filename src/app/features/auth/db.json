@@ -7,6 +7,22 @@
       "password": "1234567y",
       "confirm": "1234567y",
       "id": 1
+    },
+    {
+      "name": "Tamta Joj",
+      "mail": "123@gmail.com",
+      "username": "Ronaldo",
+      "password": "12345678i",
+      "confirm": "12345678i",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "weee",
+      "mail": "jojua@gmail.com",
+      "username": "wee12",
+      "password": "987654321q",
+      "confirm": "987654321q"
     }
   ]
 }

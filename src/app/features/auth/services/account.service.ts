@@ -26,6 +26,7 @@ export class AccountService {
     // remove user from local storage and set current user to null
     localStorage.removeItem('user');
     localStorage.removeItem('username');
+    localStorage.removeItem('id');
     // this.userSubject.next(null);
     this.router.navigate(['login']);
   }
@@ -43,31 +44,11 @@ export class AccountService {
   }
 
   update(id: string, params: IUser) {
-    return this.http.put(`${this.mainUrl}users/${id}`, params).pipe(
-      map((x) => {
-        // update stored user if the logged in user updated their own record
-        if (id == this.userValue.id) {
-          // update local storage
-          const user = { ...this.userValue, ...params };
-          localStorage.setItem('user', JSON.stringify(user));
-
-          // publish updated user to subscribers
-          this.userSubject.next(user);
-        }
-        return x;
-      })
-    );
+    return this.http.put(`${this.mainUrl}users/${id}`, params);
   }
 
-  // delete(id: string) {
-  //   return this.http.delete(`${environment.apiUrl}/users/${id}`).pipe(
-  //     map((x) => {
-  //       // auto logout if the logged in user deleted their own record
-  //       if (id == this.userValue.id) {
-  //         this.logout();
-  //       }
-  //       return x;
-  //     })
-  //   );
-  // }
+  delete(id: string) {
+    this.logout();
+    return this.http.delete(`${this.mainUrl}users/${id}`);
+  }
 }

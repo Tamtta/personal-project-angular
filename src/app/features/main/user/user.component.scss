@@ -1,5 +1,5 @@
 .nav {
-  margin: 0 auto 50px auto;
+  margin: 0 auto;
   // width: 500px;
   display: flex;
   justify-content: space-between;
@@ -38,5 +38,94 @@
       background-color: rgba(255, 255, 255, 0);
       border: none;
     }
+  }
+}
+
+.example-container .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+.mat-container {
+  width: 900px;
+  margin: 0 auto;
+  border: 1px solid purple;
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+
+  .matbtn-container {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  // .demo {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   height: 100vh;
+  //   width: 100%;
+  // }
+
+  // .perspective-container {
+  //   perspective: 800px;
+  // }
+
+  .card {
+    background-image: url(https://media.giphy.com/media/sIIhZliB2McAo/giphy.gif);
+    background-size: cover;
+    box-shadow: 0 0 140px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    height: 300px;
+    width: 500px;
+    overflow: hidden; /* Try removing this to see how the sheen works! */
+    --sheenX: 0; /* Set these with JavaScript */
+    --sheenY: 0;
+  }
+
+  .card::after {
+    content: "";
+    position: absolute;
+    top: -400px;
+    right: -400px;
+    bottom: -400px;
+    left: -400px;
+    background: linear-gradient(
+      217deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 35%,
+      rgba(255, 255, 255, 0.25) 45%,
+      rgba(255, 255, 255, 0.25) 50%,
+      rgba(255, 255, 255, 0) 60%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: translateX(var(--sheenX)) translateY(var(--sheenY));
+  }
+}
+
+.popup {
+  width: 300px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    display: inline-block;
+    font-size: 18px;
   }
 }

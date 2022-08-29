@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -49,7 +50,7 @@ export class LogInComponent implements OnInit {
     this.accountService
       .getAll()
       .pipe(tap((response) => this.usersSubject.next((this.users = response))))
-      .subscribe((res) => console.log(res));
+      .subscribe();
   }
 
   get f() {
@@ -72,22 +73,26 @@ export class LogInComponent implements OnInit {
     ) {
       console.log('wee 1');
       this.userExist = false;
-    } else if (
-      this.users.findIndex((p) => p.username == this.form.value.username)
-    ) {
-      console.log('wee 2');
-      this.userExist = true;
-    } else if (
+    }
+    // else if (
+    //   this.users.findIndex((p) => p.username == this.form.value.username)
+    // ) {
+    //   console.log('wee 2');
+    //   this.userExist = true;
+    // }
+    else if (
       this.users.findIndex((p) => p.password == this.form.value.password) == -1
     ) {
       console.log('wee 3');
       this.incorrectPassw = true;
-    } else if (
-      this.users.findIndex((p) => p.password == this.form.value.password)
-    ) {
-      console.log('wee 4');
-      this.incorrectPassw = false;
-    } else if (
+    }
+    // else if (
+    //   this.users.findIndex((p) => p.password == this.form.value.password)
+    // ) {
+    //   console.log('wee 4');
+    //   this.incorrectPassw = false;
+    // }
+    else if (
       this.users.findIndex((p) => p.username == this.form.value.username) ==
       this.users.findIndex((p) => p.password == this.form.value.password)
     ) {
@@ -108,6 +113,7 @@ export class LogInComponent implements OnInit {
           map((user) => {
             localStorage.setItem('user', JSON.stringify(user));
             localStorage.setItem('username', JSON.stringify(user.username));
+            localStorage.setItem('id', JSON.stringify(user.id));
             console.log(localStorage);
             this.router.navigate(['../dashboard']);
           }),
