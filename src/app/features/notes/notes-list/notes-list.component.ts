@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from '../../auth/services/account.service';
+import { Note } from '../note.model';
+import { NotesService } from '../services/notes.service';
 
 @Component({
   selector: 'app-notes-list',
@@ -7,9 +8,11 @@ import { AccountService } from '../../auth/services/account.service';
   styleUrls: ['./notes-list.component.scss'],
 })
 export class NotesListComponent implements OnInit {
-  constructor(private accountService: AccountService) {}
+  notes: Note[] = new Array<Note>();
 
-  ngOnInit(): void {}
+  constructor(private noteService: NotesService) {}
 
-
+  ngOnInit(): void {
+    this.notes = this.noteService.getAll();
+  }
 }
