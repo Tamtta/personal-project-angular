@@ -22,10 +22,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule,
-    MatListModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule,
+    MatListModule,
     ReactiveFormsModule,
   ],
 })

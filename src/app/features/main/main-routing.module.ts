@@ -20,6 +20,12 @@ const routes: Routes = [
     loadChildren: () => import('../auth/auth.module').then((m) => m.AuthModule),
     canActivate: [LoggedUserGuard],
   },
+
+  {
+    path: 'notes',
+    loadChildren: () =>
+      import('../notes/notes.module').then((m) => m.NotesModule),
+  },
 ];
 
 @NgModule({
