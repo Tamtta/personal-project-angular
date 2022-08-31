@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Note } from '../note.model';
 import { NotesService } from '../services/notes.service';
@@ -12,13 +13,14 @@ export class NotesListComponent implements OnInit {
   filtered: Note[] = [];
   @ViewChild('searchNote') ref!: ElementRef<HTMLInputElement>;
 
-  constructor(private noteService: NotesService) {}
+  constructor(private noteService: NotesService, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.notes = this.noteService.getAll();
     // this.filtered = this.noteService.getAll();
     this.search('');
     console.log(this.notes, 'wee');
+    // this.post(this.notes);
   }
 
   URL(note: Note) {
@@ -70,6 +72,10 @@ export class NotesListComponent implements OnInit {
     });
 
     return match;
+  }
+
+  post(note: Note[]) {
+    return this.http.post(`http://localhost:3000/notes`, note);
   }
 
   // sort(searchedResults: Note[]) {

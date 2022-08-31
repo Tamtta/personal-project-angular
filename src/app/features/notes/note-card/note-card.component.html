@@ -1,7 +1,11 @@
 <div #container class="note-card-container">
   <a [routerLink]="link">
     <div class="note-card-content">
-      <h1 class="note-card-title">{{ title }}</h1>
+      <h1 class="note-card-title">
+        {{ title }}
+        <span>{{ date | date: format }}</span>
+      </h1>
+      <!-- <span>{{ date | date: format }}</span> -->
 
       <div class="note-card-body">
         <p>{{ body }}</p>

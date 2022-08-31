@@ -49,4 +49,8 @@ export class NoteDetailsComponent implements OnInit {
   cancel() {
     this.router.navigateByUrl('/dashboard/notes');
   }
+
+  // post(note: Note[]) {
+  //   return this.http.post(`http://localhost:3000/notes`, note);
+  // }
 }

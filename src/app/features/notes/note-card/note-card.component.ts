@@ -13,6 +13,8 @@ export class NoteCardComponent implements OnInit {
 
   @Output('delete') dltEvent: EventEmitter<void> = new EventEmitter<void>();
 
+  date = new Date();
+  format!: 'mediumDate';
   constructor(private noteService: NotesService) {}
 
   ngOnInit(): void {}

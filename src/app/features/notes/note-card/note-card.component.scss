@@ -28,6 +28,13 @@
         font-size: 25px;
         font-weight: bold;
         color: rgba(55, 0, 78, 0.744);
+
+        span {
+          display: inline-block;
+          font-size: 10px;
+          font-weight: lighter;
+          // height: 15px;
+        }
       }
 
       .note-card-body {
