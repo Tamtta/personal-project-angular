@@ -3,13 +3,21 @@
     <mat-form-field appearance="fill" class="mat-field">
       <mat-label>Filter</mat-label>
       <mat-icon matPrefix>search</mat-icon>
-      <input type="text" matInput placeholder="Type something.." />
+      <input
+        #searchNote
+        type="text"
+        matInput
+        placeholder="Type something.."
+        (keyup)="search(searchNote.value)"
+      />
     </mat-form-field>
   </div>
 
   <div class="notes-list">
     <app-note-card
-      *ngFor="let note of notes"
+      *ngFor="let note of filtered; index as i"
+      [link]="URL(note)"
+      (delete)="delete(note)"
       [title]="note.title"
       [body]="note.body"
     ></app-note-card>
@@ -19,3 +27,5 @@
     <mat-icon>add</mat-icon>Add
   </button>
 </div>
+
+<!-- [animation] -->

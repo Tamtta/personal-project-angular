@@ -1,15 +1,17 @@
 <div #container class="note-card-container">
-  <div class="note-card-content">
-    <h1 class="note-card-title">{{ title }}</h1>
+  <a [routerLink]="link">
+    <div class="note-card-content">
+      <h1 class="note-card-title">{{ title }}</h1>
 
-    <div class="note-card-body">
-      <p>{{ body }}</p>
+      <div class="note-card-body">
+        <p>{{ body }}</p>
 
-      <div class="fade-out"></div>
+        <div class="fade-out"></div>
+      </div>
     </div>
-  </div>
+  </a>
 
-  <div class="delete-btn">
+  <div class="delete-btn" (click)="delete()">
     <button mat-button>❌</button>
   </div>
 </div>

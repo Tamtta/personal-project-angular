@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NotesService } from '../services/notes.service';
 
 @Component({
   selector: 'app-note-card',
@@ -8,8 +9,17 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NoteCardComponent implements OnInit {
   @Input() title!: string;
   @Input() body!: string;
+  @Input() link!: string;
 
-  constructor() {}
+  @Output('delete') dltEvent: EventEmitter<void> = new EventEmitter<void>();
+
+  constructor(private noteService: NotesService) {}
 
   ngOnInit(): void {}
+
+  delete() {
+    console.log('oe');
+    // this.noteService.delete();
+    this.dltEvent.emit();
+  }
 }

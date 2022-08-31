@@ -16,6 +16,7 @@ import { DashboardComponent } from './features/main/dashboard/dashboard.componen
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
