@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LogInComponent } from '../../auth/log-in/log-in.component';
 import { AccountService } from '../../auth/services/account.service';
@@ -7,6 +7,7 @@ import { AccountService } from '../../auth/services/account.service';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardComponent implements OnInit {
   lastIndex = localStorage.getItem('username')?.lastIndexOf('"');

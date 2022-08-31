@@ -1,6 +1,6 @@
 import { JsonPipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
@@ -20,6 +20,7 @@ import { AccountService } from '../services/account.service';
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LogInComponent implements OnInit {
   form!: FormGroup;

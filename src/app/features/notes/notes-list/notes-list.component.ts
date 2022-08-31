@@ -1,5 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Note } from '../note.model';
 import { NotesService } from '../services/notes.service';
 
@@ -7,6 +13,7 @@ import { NotesService } from '../services/notes.service';
   selector: 'app-notes-list',
   templateUrl: './notes-list.component.html',
   styleUrls: ['./notes-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotesListComponent implements OnInit {
   notes: Note[] = [];

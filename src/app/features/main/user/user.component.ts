@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { BehaviorSubject, map, tap } from 'rxjs';
 import { IUser } from '../../auth/auth.interface';
@@ -9,6 +9,8 @@ import { AccountService } from '../../auth/services/account.service';
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
   // imports: [],
 })
 export class UserComponent implements OnInit {

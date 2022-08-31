@@ -1,10 +1,18 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { NotesService } from '../services/notes.service';
 
 @Component({
   selector: 'app-note-card',
   templateUrl: './note-card.component.html',
   styleUrls: ['./note-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NoteCardComponent implements OnInit {
   @Input() title!: string;

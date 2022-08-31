@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
@@ -10,6 +10,7 @@ import { AccountService } from '../services/account.service';
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterComponent implements OnInit {
   form!: FormGroup;

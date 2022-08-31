@@ -1,5 +1,5 @@
 import { HttpParams } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Note } from '../note.model';
@@ -9,6 +9,7 @@ import { NotesService } from '../services/notes.service';
   selector: 'app-note-details',
   templateUrl: './note-details.component.html',
   styleUrls: ['./note-details.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NoteDetailsComponent implements OnInit {
   note!: Note;
