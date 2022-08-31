@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Note } from '../note.model';
 import { NotesService } from '../services/notes.service';
 
@@ -11,7 +12,7 @@ import { NotesService } from '../services/notes.service';
 export class NoteDetailsComponent implements OnInit {
   note!: Note;
 
-  constructor(private noteService: NotesService) {}
+  constructor(private noteService: NotesService, private router: Router) {}
 
   ngOnInit(): void {
     this.note = new Note();
