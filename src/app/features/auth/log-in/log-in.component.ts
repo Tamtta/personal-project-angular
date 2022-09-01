@@ -3,16 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {
-  BehaviorSubject,
-  catchError,
-  debounceTime,
-  first,
-  map,
-  Observable,
-  tap,
-  throwError,
-} from 'rxjs';
+import { BehaviorSubject, catchError, map, tap, throwError } from 'rxjs';
 import { IUser } from '../auth.interface';
 import { AccountService } from '../services/account.service';
 
