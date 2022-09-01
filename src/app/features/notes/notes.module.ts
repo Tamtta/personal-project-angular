@@ -12,6 +12,8 @@ import { NoteDetailsComponent } from './note-details/note-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { share } from 'rxjs';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     FormsModule,
     MatButtonModule,
+    SharedModule,
     // BrowserAnimationsModule,
   ],
 })

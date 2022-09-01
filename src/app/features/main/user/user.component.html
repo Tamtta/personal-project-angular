@@ -1,49 +1,51 @@
 <div class="nav">
   <div>
     <h1>
-      <a routerLink="/dashboard">Dashboard</a>
+      <a routerLink="/dashboard">{{ "DASHBOARD" | translate }}</a>
     </h1>
     <h1>
-      <a routerLink="/dashboard/user" class="user">User</a>
+      <a routerLink="/dashboard/user" class="user">{{ "USER" | translate }}</a>
     </h1>
     <h1>
-      <a routerLink="/dashboard/notes">Notes</a>
+      <a routerLink="/dashboard/notes">{{ "NOTES" | translate }}</a>
     </h1>
     <h1>
-      <a routerLink="/dashboard/books">Books</a>
+      <a routerLink="/dashboard/books">{{ "BOOKS" | translate }}</a>
     </h1>
   </div>
 
   <div>
-    <button (click)="logOut()"><h1>Log out</h1></button>
+    <button (click)="logOut()">
+      <h1>{{ "LOGOUT" | translate }}</h1>
+    </button>
   </div>
 </div>
 
 <div class="popup">
-  <span *ngIf="updated">User is successfully updated! 🎉</span>
+  <span *ngIf="updated">{{ "USERUPDATESUCCESS" | translate }} 🎉</span>
 </div>
 
 <div class="example-container mat-container">
   <div>
     <form [formGroup]="updateForm">
       <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
+        <mat-label>{{ "NAME" | translate }}</mat-label>
         <input matInput formControlName="name" />
       </mat-form-field>
       <br />
       <mat-form-field appearance="fill">
-        <mat-label>Username</mat-label>
+        <mat-label>{{ "USERNAME" | translate }}</mat-label>
         <input matInput formControlName="username" />
       </mat-form-field>
       <br />
       <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
+        <mat-label>{{ "EMAIL" | translate }}</mat-label>
         <input matInput formControlName="mail" />
       </mat-form-field>
       <br />
 
       <mat-form-field appearance="fill">
-        <mat-label>Enter your password</mat-label>
+        <mat-label>{{ "ENTERPASSWORD" | translate }}</mat-label>
         <input
           matInput
           [type]="hide ? 'password' : 'text'"
@@ -60,7 +62,7 @@
         </button>
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Confirm your password</mat-label>
+        <mat-label>{{ "CONFIRMPASSWORD" | translate }}</mat-label>
         <input
           matInput
           [type]="hide ? 'password' : 'text'"
@@ -84,10 +86,10 @@
           (click)="update()"
           [disabled]="updateForm.invalid"
         >
-          Update
+          {{ "UPDATE" | translate }}
         </button>
         <button mat-raised-button color="primary" (click)="delete()">
-          Delete
+          {{ "DELETE" | translate }}
         </button>
       </div>
     </form>

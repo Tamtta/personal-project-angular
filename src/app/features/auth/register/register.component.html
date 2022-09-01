@@ -1,15 +1,15 @@
 <div class="nav">
   <h1>
-    <a routerLink="/login">Login</a>
+    <a routerLink="/login">{{ "LOGIN" | translate }}</a>
   </h1>
   <h1>
-    <a routerLink="/register" class="register">Register</a>
+    <a routerLink="/register" class="register">{{ "REGISTER" | translate }}</a>
   </h1>
 </div>
 <div class="box">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div>
-      <p>Name</p>
+      <p>{{ "NAME" | translate }}</p>
       <input
         type="text"
         formControlName="name"
@@ -19,7 +19,7 @@
     </div>
 
     <div>
-      <p>Username</p>
+      <p>{{ "USERNAME" | translate }}</p>
       <input
         type="text"
         formControlName="username"
@@ -29,7 +29,7 @@
     </div>
 
     <div>
-      <p>Email</p>
+      <p>{{ "EMAIL" | translate }}</p>
       <input
         type="text"
         formControlName="mail"
@@ -39,7 +39,7 @@
     </div>
 
     <div>
-      <p>Password</p>
+      <p>{{ "PASSWORD" | translate }}</p>
       <input
         type="password"
         formControlName="password"
@@ -49,7 +49,7 @@
     </div>
 
     <div>
-      <p>Confirm password</p>
+      <p>{{ "CONFIRMPASSWORD" | translate }}</p>
       <input
         type="password"
         formControlName="confirm"
@@ -63,9 +63,11 @@
     </div>
 
     <div class="btn-container">
-      <button class="button" [disabled]="form.invalid">Register</button>
+      <button class="button" [disabled]="form.invalid">
+        {{ "REGISTER" | translate }}
+      </button>
       <button class="button cancel-btn">
-        <a routerLink="../login">Cancel</a>
+        <a routerLink="../login">{{ "CANCEL" | translate }}</a>
       </button>
     </div>
   </form>

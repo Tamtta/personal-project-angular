@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 // import { MatRippleModule } from '@angular/material/ripple';
 // import { m} from '@angular/material/list';
 
@@ -27,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatListModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
 })
 export class MainModule {}

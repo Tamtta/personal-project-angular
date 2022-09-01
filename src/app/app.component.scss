@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px 10px 20px;
+  // background-color: #78ce9c;
+
+  button {
+    width: 28px;
+    height: 22px;
+    background-color: none;
+    border: none;
+    margin-right: 15px;
+  }
+  .btnENG {
+    background-image: url(../assets/gb.svg);
+  }
+
+  .btnKA {
+    background-image: url(../assets/ge.svg);
+  }
+}

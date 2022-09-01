@@ -1,21 +1,23 @@
 <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)">
-  <label class="label">Title</label>
+  <label class="label">{{ "TITLE" | translate }}</label>
   <br />
   <mat-form-field appearance="fill" class="mat-field mat-input">
-    <mat-label>Title</mat-label>
+    <mat-label>{{ "TITLE" | translate }}</mat-label>
     <input matInput type="text" name="title" [ngModel]="note.title" required />
   </mat-form-field>
   <br />
-  <label class="label">Body</label>
+  <label class="label">{{ "BODY" | translate }}</label>
   <br />
   <mat-form-field appearance="fill" class="mat-field">
-    <mat-label>Body</mat-label>
+    <mat-label>{{ "BODY" | translate }}</mat-label>
     <textarea matInput name="body" [ngModel]="note.body"></textarea>
   </mat-form-field>
 
   <div class="field is-grouped is-pulled-right">
     <div class="control">
-      <button mat-flat-button type="button" (click)="cancel()">Cancel</button>
+      <button mat-flat-button type="button" (click)="cancel()">
+        {{ "CANCEL" | translate }}
+      </button>
     </div>
     <div class="control">
       <button
@@ -24,7 +26,7 @@
         type="submit"
         [disabled]="noteForm.invalid"
       >
-        Save
+        {{ "SAVE" | translate }}
       </button>
     </div>
   </div>
