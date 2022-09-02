@@ -1,0 +1,27 @@
+.budget-container {
+  height: 190px;
+  background-color: rgba(29, 6, 24, 0);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.836);
+
+  h1 {
+    font-size: 38px;
+    // margin: 0 auto;
+    text-align: center;
+    // color: white;
+    // font-weight: 900;
+    padding: 70px;
+  }
+}
+
+.add-item-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px;
+
+  .add-item-container {
+    width: 900px;
+    height: 50px;
+    // background-color: aqua;
+  }
+}

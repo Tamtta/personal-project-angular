@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CatalogueComponent } from './catalogue/catalogue.component';
 import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    // children: [
-    // { path: '', component: TableComponent },
-    // { path: 'new', component: NoteDetailsComponent },
-    // { path: ':id', component: NoteDetailsComponent },
-    // ],
+    children: [{ path: '', component: CatalogueComponent }],
   },
 ];
 

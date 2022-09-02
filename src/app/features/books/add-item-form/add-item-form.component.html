@@ -1,0 +1,32 @@
+<form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+  <mat-form-field appearance="fill" class="input-for-amount">
+    <mat-label>Amount</mat-label>
+    <input
+      matInput
+      type="number"
+      name="amount"
+      required
+      [ngModel]="item.amount"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="input-for-description">
+    <mat-label>Description</mat-label>
+    <input
+      matInput
+      type="text"
+      name="description"
+      required
+      [ngModel]="item.description"
+    />
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="itemForm.invalid"
+  >
+    {{ "ADD" | translate }}
+  </button>
+</form>

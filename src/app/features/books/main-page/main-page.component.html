@@ -1,0 +1,11 @@
+<div class="budget-container">
+  <h1>1973469234</h1>
+</div>
+
+<div class="add-item-section">
+  <div class="add-item-container">
+    <app-add-item-form (formSubmit)="addItem($event)"></app-add-item-form>
+  </div>
+</div>
+
+<app-budget-list [items]="items" (delete)="itemdlt($event)"></app-budget-list>

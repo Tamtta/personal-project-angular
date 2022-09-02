@@ -1,0 +1,15 @@
+<div class="root">
+  <div
+    class="item expense"
+    [ngClass]="{ income: isIncome, expense: !isIncome }"
+  >
+    <div class="description">
+      <p>{{ item.description }}</p>
+    </div>
+    <div class="amount">
+      <p>{{ item.amount }}</p>
+    </div>
+  </div>
+
+  <button (click)="onClick()">❌</button>
+</div>

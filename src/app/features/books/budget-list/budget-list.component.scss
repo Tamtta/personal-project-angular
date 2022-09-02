@@ -1,0 +1,48 @@
+.items-section {
+  display: flex;
+  padding: 50px;
+
+  justify-content: center;
+  align-items: center;
+
+  .items-container {
+    display: flex;
+    max-width: 900px;
+    height: 100%;
+    width: 100%;
+
+    .income,
+    .expenses {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 0; // container will be same size, it does not depend on content
+      flex-grow: 1;
+
+      h1 {
+        font-size: 24px;
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+      }
+    }
+
+    .income {
+      margin-right: 35px;
+
+      h1 {
+        color: rgb(0, 108, 0);
+      }
+    }
+
+    .expenses {
+      h1 {
+        color: rgb(108, 0, 0);
+      }
+    }
+  }
+}
+
+app-budget-card {
+  margin-bottom: 20px;
+  display: block;
+}
