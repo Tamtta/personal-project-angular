@@ -27,6 +27,9 @@ export class AccountService {
     localStorage.removeItem('user');
     localStorage.removeItem('username');
     localStorage.removeItem('id');
+    // this.changeDet.markForCheck();
+    //
+
     // this.userSubject.next(null);
     this.router.navigate(['login']);
   }

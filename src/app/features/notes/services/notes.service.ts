@@ -1,31 +1,27 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { Note } from '../note.model';
+import { map } from 'rxjs';
+import { LogInComponent } from '../../auth/log-in/log-in.component';
+import { Note, NoteAPI } from '../note.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotesService {
   notes: Note[] = [];
-
-  // if I change methods
-  // private Url$ = 'http://localhost:3000/';
-  // private noteSubject$!: Subject<Note>;
-  // public note$!: Observable<Note>;
+  currentUserID!: number;
+  private Url$ = 'http://localhost:3000/';
 
   constructor(private router: Router, private http: HttpClient) {
-    // this.noteSubject$ = new Subject<Note>();
-    // this.note$ = this.noteSubject$.asObservable();
+    const currentUserId = localStorage.getItem('id');
+    if (currentUserId) this.currentUserID = +currentUserId;
+
+    this.get$();
   }
 
-  getAll() {
-    return this.notes;
-  }
-
-  get(id: number) {
-    return this.notes[id];
+  getById$(id: number) {
+    return this.http.get<Note>(`${this.Url$}notes/${id}`);
   }
 
   // don't have this
@@ -35,37 +31,26 @@ export class NotesService {
 
   add(note: Note) {
     let newNote = this.notes.push(note);
-    let index = newNote - 1;
-    return index;
+    note.userId = +this.currentUserID;
+    return this.http.post(`${this.Url$}notes`, { note });
   }
 
-  update(id: number, title: string, body: string) {
-    let note = this.notes[id];
-    note.title = title;
-    note.body = body;
+  update$(id: number, body: NoteAPI) {
+    body.note.userId = this.currentUserID;
+    return this.http.put(`${this.Url$}notes/${id}`, body);
   }
 
-  delete(id: number) {
-    this.notes.splice(id, 1);
+  get$() {
+    return this.http
+      .get<NoteAPI[]>(`${this.Url$}notes`)
+      .pipe(
+        map((v) =>
+          v.filter((n: NoteAPI) => n?.note?.userId == this?.currentUserID)
+        )
+      );
   }
 
-  // add$(note: Note) {
-  //   return this.http.post(`${this.Url$}notes`, note);
-  // }
-
-  // get$(id: string): Observable<Note> {
-  //   return this.http.get<Note>(`${this.Url$}notes/${id}`);
-  // }
-
-  // getAll$(): Observable<Note[]> {
-  //   return this.http.get<Note[]>(`${this.Url$}notes`);
-  // }
-
-  // update$(id: string, params: Note) {
-  //   return this.http.put(`${this.Url$}notes/${id}`, params);
-  // }
-
-  // delete$(id: string) {
-  //   return this.http.delete(`${this.Url$}notes/${id}`);
-  // }
+  delete$(id: number) {
+    return this.http.delete(`${this.Url$}notes/${id}`);
+  }
 }

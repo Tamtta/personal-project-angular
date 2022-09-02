@@ -1,16 +1,26 @@
-<form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)">
+<form
+  *ngIf="{ value: note$ | async } as note"
+  #noteForm="ngForm"
+  (ngSubmit)="onSubmit(noteForm)"
+>
   <label class="label">{{ "TITLE" | translate }}</label>
   <br />
   <mat-form-field appearance="fill" class="mat-field mat-input">
     <mat-label>{{ "TITLE" | translate }}</mat-label>
-    <input matInput type="text" name="title" [ngModel]="note.title" required />
+    <input
+      matInput
+      type="text"
+      name="title"
+      [ngModel]="note?.value?.title"
+      required
+    />
   </mat-form-field>
   <br />
   <label class="label">{{ "BODY" | translate }}</label>
   <br />
   <mat-form-field appearance="fill" class="mat-field">
     <mat-label>{{ "BODY" | translate }}</mat-label>
-    <textarea matInput name="body" [ngModel]="note.body"></textarea>
+    <textarea matInput name="body" [ngModel]="note?.value?.body"></textarea>
   </mat-form-field>
 
   <div class="field is-grouped is-pulled-right">

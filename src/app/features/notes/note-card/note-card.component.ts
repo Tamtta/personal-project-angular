@@ -6,7 +6,6 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { NotesService } from '../services/notes.service';
 
 @Component({
   selector: 'app-note-card',
@@ -23,13 +22,12 @@ export class NoteCardComponent implements OnInit {
 
   date = new Date();
   format!: 'mediumDate';
-  constructor(private noteService: NotesService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
   delete() {
-    console.log('oe');
-    // this.noteService.delete();
+    event?.stopPropagation();
     this.dltEvent.emit();
   }
 }

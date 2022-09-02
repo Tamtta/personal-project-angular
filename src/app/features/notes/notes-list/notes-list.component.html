@@ -16,14 +16,14 @@
   <div class="notes-list">
     <app-note-card
       *ngFor="let note of filtered; index as i"
-      [link]="URL(note)"
-      (delete)="delete(note)"
-      [title]="note.title"
-      [body]="note.body"
+      (delete)="delete(note.id)"
+      (click)="toDetails(note.id)"
+      [title]="note.note.title"
+      [body]="note.note.body"
     ></app-note-card>
   </div>
 
-  <button mat-flat-button color="primary" class="btn" routerLink="new">
+  <button mat-flat-button color="primary" class="btn" routerLink="0">
     <mat-icon>add</mat-icon>{{ "ADD" | translate }}
   </button>
 </div>

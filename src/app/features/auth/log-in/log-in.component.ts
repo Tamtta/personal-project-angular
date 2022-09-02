@@ -1,6 +1,11 @@
 import { JsonPipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, map, tap, throwError } from 'rxjs';
@@ -19,6 +24,7 @@ export class LogInComponent implements OnInit {
   users: IUser[] = [];
   incorrectPassw: boolean = false;
   userExist: boolean = true;
+  userID!: number;
   public usersSubject: BehaviorSubject<IUser[]> = new BehaviorSubject(
     <IUser[]>[]
   );
@@ -26,7 +32,7 @@ export class LogInComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private accountService: AccountService,
-    private router: Router
+    private router: Router // private changeDet: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -54,11 +60,12 @@ export class LogInComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
+    // this.changeDet.markForCheck();
 
     let index1;
     let usernameIndex;
     let index2;
-    let usernamePass;
+    let usernamePass: IUser;
 
     if (
       this.users.findIndex((p) => p.username == this.form.value.username) == -1
@@ -106,6 +113,8 @@ export class LogInComponent implements OnInit {
             localStorage.setItem('user', JSON.stringify(user));
             localStorage.setItem('username', JSON.stringify(user.username));
             localStorage.setItem('id', JSON.stringify(user.id));
+            window.location.reload();
+
             console.log(localStorage);
             this.router.navigate(['../dashboard']);
           }),

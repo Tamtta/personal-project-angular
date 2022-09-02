@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotesListComponent } from './notes-list/notes-list.component';
-import { MainRoutingModule } from '../main/main-routing.module';
 import { NotesRoutingModule } from './notes-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,8 +10,6 @@ import { NoteCardComponent } from './note-card/note-card.component';
 import { NoteDetailsComponent } from './note-details/note-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { share } from 'rxjs';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
