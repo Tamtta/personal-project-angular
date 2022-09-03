@@ -35,5 +35,12 @@
   "OFFERINGHELP": "How can we help you?",
   "USERCANDO": "You can update your profile or see what you have planned for today. Need help figuring out your finances or budget?",
   "WEAREREADY": "We are ready to help you in everything.",
-  "NICEDAY": "Have a nice day"
+  "NICEDAY": "Have a nice day",
+  "DESCRIPTION": "Description",
+  "AMOUNT": "Amount",
+  "INCOME": "Income",
+  "EXPENSES": "Expenses",
+  "BUDGETCALCULATOR": "Your budget calculator",
+  "EDIT": "Edit",
+  "BUDGETCALC": "Budget manager"
 }

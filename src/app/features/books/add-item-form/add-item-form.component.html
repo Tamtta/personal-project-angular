@@ -1,6 +1,6 @@
 <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
   <mat-form-field appearance="fill" class="input-for-amount">
-    <mat-label>Amount</mat-label>
+    <mat-label>{{ "AMOUNT" | translate }}</mat-label>
     <input
       matInput
       type="number"
@@ -11,7 +11,7 @@
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="input-for-description">
-    <mat-label>Description</mat-label>
+    <mat-label>{{ "DESCRIPTION" | translate }}</mat-label>
     <input
       matInput
       type="text"
