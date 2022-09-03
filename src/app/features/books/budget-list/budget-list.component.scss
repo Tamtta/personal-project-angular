@@ -95,3 +95,61 @@ app-budget-card {
     }
   }
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .items-section {
+    display: flex;
+    padding: 0;
+    margin: 0 auto;
+
+    justify-content: center;
+    align-items: center;
+
+    .items-container {
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      display: flex;
+      width: 310px;
+      // height: 100%;
+      width: 100%;
+
+      .income,
+      .expenses {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 0; // container will be same size, it does not depend on content
+        flex-grow: 1;
+
+        h1 {
+          font-size: 24px;
+          font-weight: 900;
+          text-transform: uppercase;
+          margin-bottom: 30px;
+          text-align: center;
+          padding: 10px 50px;
+          border: 1px solid #e58cea86;
+        }
+      }
+
+      .income {
+        margin-right: 0;
+
+        h1 {
+          color: rgb(0, 108, 0);
+        }
+      }
+
+      .expenses {
+        h1 {
+          color: rgb(108, 0, 0);
+        }
+      }
+    }
+  }
+
+  app-budget-card {
+    margin: 0 auto 20px auto;
+    display: block;
+  }
+}

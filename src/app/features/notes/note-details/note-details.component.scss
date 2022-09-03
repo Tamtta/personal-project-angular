@@ -34,3 +34,36 @@ form {
     }
   }
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  form {
+    margin: 45px auto;
+    max-width: 310px;
+
+    label {
+      font-weight: 500;
+      font-size: larger;
+    }
+
+    .mat-field {
+      width: 310px;
+
+      textarea {
+        height: 100px;
+      }
+    }
+
+    .mat-input {
+      margin-bottom: 30px;
+    }
+
+    .field {
+      display: flex;
+      justify-content: flex-end;
+
+      .control {
+        padding-left: 15px;
+      }
+    }
+  }
+}
