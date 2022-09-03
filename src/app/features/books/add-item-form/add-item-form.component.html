@@ -27,6 +27,7 @@
     type="submit"
     [disabled]="itemForm.invalid"
   >
-    {{ "ADD" | translate }}
+    <p *ngIf="new">{{ "ADD" | translate }}</p>
+    <p *ngIf="!new">{{ "SAVE" | translate }}</p>
   </button>
 </form>

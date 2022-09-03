@@ -8,6 +8,7 @@
           [isIncome]="true"
           [item]="item"
           (btnClicked)="onDelete(item)"
+          (cardClick)="onCardClicked(item)"
         ></app-budget-card>
       </div>
     </div>
@@ -20,6 +21,7 @@
           [isIncome]="false"
           [item]="item"
           (btnClicked)="onDelete(item)"
+          (cardClick)="onCardClicked(item)"
         ></app-budget-card>
       </div>
     </div>

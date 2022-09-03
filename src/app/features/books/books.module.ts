@@ -9,6 +9,7 @@ import { AddItemFormComponent } from './add-item-form/add-item-form.component';
 import { BudgetListComponent } from './budget-list/budget-list.component';
 import { BudgetCardComponent } from './budget-list/budget-card/budget-card.component';
 import { FormsModule } from '@angular/forms';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     AddItemFormComponent,
     BudgetListComponent,
     BudgetCardComponent,
+    EditComponent,
   ],
   imports: [CommonModule, BooksRoutingModule, SharedModule, FormsModule],
+  entryComponents: [EditComponent],
 })
 export class BooksModule {}

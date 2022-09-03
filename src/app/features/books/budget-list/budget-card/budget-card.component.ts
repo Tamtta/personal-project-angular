@@ -10,6 +10,7 @@ export class BudgetCardComponent implements OnInit {
   @Input() isIncome: boolean = true;
   @Input() item!: Budget;
   @Output() btnClicked: EventEmitter<void> = new EventEmitter<void>();
+  @Output() cardClick: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() {}
 
@@ -17,5 +18,9 @@ export class BudgetCardComponent implements OnInit {
 
   onClick() {
     this.btnClicked.emit();
+  }
+
+  onCardClick() {
+    this.cardClick.emit();
   }
 }

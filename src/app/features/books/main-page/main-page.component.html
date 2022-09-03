@@ -1,5 +1,5 @@
 <div class="budget-container">
-  <h1>1973469234</h1>
+  <h1 [ngClass]="{ red: total < 0, green: total > 0 }">{{ total }}</h1>
 </div>
 
 <div class="add-item-section">
@@ -8,4 +8,8 @@
   </div>
 </div>
 
-<app-budget-list [items]="items" (delete)="itemdlt($event)"></app-budget-list>
+<app-budget-list
+  [items]="items"
+  (delete)="itemdlt($event)"
+  (udpateEvent)="update($event)"
+></app-budget-list>

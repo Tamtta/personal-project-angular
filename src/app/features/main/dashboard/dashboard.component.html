@@ -17,24 +17,41 @@
     </button>
   </div>
 </div>
-<!-- <button (click)="function()">we</button> -->
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
 
-<div class="content">
-  <div class="content__container">
-    <p class="content__container__text">{{ "HELLO" | translate }}</p>
-
-    <ul class="content__container__list">
-      <li class="content__container__list__item">
-        {{ "WORLD" | translate }} !
-      </li>
-      <li class="content__container__list__item">{{ username }} !</li>
-      <li class="content__container__list__item">
-        {{ "USERS" | translate }} !
-      </li>
-      <li class="content__container__list__item">
-        {{ "EVERYBODY" | translate }} !
-      </li>
-    </ul>
+<div class="header-and-link-container">
+  <div class="headers">
+    <h1>{{ "WELCOME" | translate }}, {{ username }}🎉!</h1>
+    <h2>{{ "OFFERINGHELP" | translate }}</h2>
+    <h2>{{ "USERCANDO" | translate }} 🤔 {{ "WEAREREADY" | translate }} 😌</h2>
+    <h2 class="haveaniceday">{{ "NICEDAY" | translate }}🎊!</h2>
   </div>
+  <div class="links">
+    <h1>
+      <a routerLink="user">{{ "USER" | translate }}</a>
+    </h1>
+    <h1>
+      <a routerLink="notes">{{ "NOTES" | translate }}</a>
+    </h1>
+    <h1>
+      <a routerLink="books">{{ "BOOKS" | translate }}</a>
+    </h1>
+  </div>
+</div>
+
+<div id="container">
+  <div class="steam" id="steam1"></div>
+  <div class="steam" id="steam2"></div>
+  <div class="steam" id="steam3"></div>
+  <div class="steam" id="steam4"></div>
+
+  <div id="cup">
+    <div id="cup-body">
+      <div id="cup-shade"></div>
+    </div>
+    <div id="cup-handle"></div>
+  </div>
+
+  <div id="saucer"></div>
+
+  <div id="shadow"></div>
 </div>

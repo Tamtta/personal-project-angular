@@ -1,6 +1,7 @@
 <div class="root">
   <div
     class="item expense"
+    (click)="onCardClick()"
     [ngClass]="{ income: isIncome, expense: !isIncome }"
   >
     <div class="description">
