@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { BehaviorSubject, map, tap } from 'rxjs';
-import { IUser } from '../../auth/auth.interface';
 import { passwordValidator } from '../../auth/password-validator';
 import { AccountService } from '../../auth/services/account.service';
 

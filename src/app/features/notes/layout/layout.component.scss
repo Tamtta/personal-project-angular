@@ -40,3 +40,49 @@
     }
   }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .nav {
+    margin: 0 auto;
+    // width: 500px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #2ecc706f;
+
+    div {
+      padding: 30px 8px 30px 8px;
+
+      h1 {
+        display: inline-block;
+        padding: 0 20px;
+        font-size: 16px;
+
+        // &:first-child {
+        border-right: 2px solid black;
+        // }
+
+        a {
+          text-decoration: none;
+          color: black;
+
+          &.notes {
+            font-weight: 900;
+          }
+        }
+      }
+    }
+
+    div {
+      padding: 30px 8px 30px 8px;
+
+      h1:last-child {
+        border: none;
+      }
+
+      button {
+        background-color: rgba(255, 255, 255, 0);
+        border: none;
+      }
+    }
+  }
+}

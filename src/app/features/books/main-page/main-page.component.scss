@@ -33,3 +33,22 @@
 .green {
   color: green;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .budget-container {
+    height: 150px;
+    background-color: rgba(29, 6, 24, 0);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.836);
+    border-left: 3px solid rgba(255, 255, 255, 0.836);
+    border-right: 3px solid rgba(255, 255, 255, 0.836);
+
+    h1 {
+      font-size: 44px;
+      // margin: 0 auto;
+      text-align: center;
+      // color: white;
+      font-weight: 900;
+      padding: 50px;
+    }
+  }
+}

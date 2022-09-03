@@ -26,7 +26,7 @@
 </div>
 
 <div class="example-container mat-container">
-  <div>
+  <div class="field">
     <form [formGroup]="updateForm">
       <mat-form-field appearance="fill">
         <mat-label>{{ "NAME" | translate }}</mat-label>
@@ -61,6 +61,7 @@
           <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
         </button>
       </mat-form-field>
+      <br />
       <mat-form-field appearance="fill">
         <mat-label>{{ "CONFIRMPASSWORD" | translate }}</mat-label>
         <input
@@ -95,9 +96,7 @@
     </form>
   </div>
 
-  <div class="demo">
-    <div class="perspective-container">
-      <div class="card"></div>
-    </div>
+  <div>
+    <div class="card"></div>
   </div>
 </div>

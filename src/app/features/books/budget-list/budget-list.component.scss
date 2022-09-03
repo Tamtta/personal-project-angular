@@ -46,3 +46,52 @@ app-budget-card {
   margin-bottom: 20px;
   display: block;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .items-section {
+    display: flex;
+    padding: 50px;
+
+    justify-content: center;
+    align-items: center;
+
+    .items-container {
+      display: flex;
+      width: 700px;
+      height: 100%;
+      width: 100%;
+
+      .income,
+      .expenses {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 0; // container will be same size, it does not depend on content
+        flex-grow: 1;
+
+        h1 {
+          font-size: 24px;
+          font-weight: 900;
+          text-transform: uppercase;
+          margin-bottom: 30px;
+          text-align: center;
+          border-left: 1px solid #e58cea86;
+          border-right: 1px solid #e58cea86;
+        }
+      }
+
+      .income {
+        margin-right: 35px;
+
+        h1 {
+          color: rgb(0, 108, 0);
+        }
+      }
+
+      .expenses {
+        h1 {
+          color: rgb(108, 0, 0);
+        }
+      }
+    }
+  }
+}

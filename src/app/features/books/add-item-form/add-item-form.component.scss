@@ -27,3 +27,26 @@ form {
     }
   }
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.836);
+    border-left: 3px solid rgba(255, 255, 255, 0.836);
+    border-right: 3px solid rgba(255, 255, 255, 0.836);
+    margin-bottom: 50px;
+
+    .input-for-amount {
+      width: 100px;
+      border-radius: 5px;
+    }
+
+    .input-for-description {
+      width: 500px;
+      border-radius: 5px;
+    }
+  }
+}

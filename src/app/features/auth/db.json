@@ -1,12 +1,12 @@
 {
   "users": [
     {
-      "name": "weee",
+      "id": 1,
+      "name": "weeee",
       "mail": "jojua.tamta99@gmail.com",
       "username": "wee-",
       "password": "1234567y",
-      "confirm": "1234567y",
-      "id": 1
+      "confirm": "1234567y"
     },
     {
       "name": "Tamta Joj",
@@ -73,6 +73,14 @@
         "userId": 1
       },
       "id": 16
+    },
+    {
+      "note": {
+        "title": "555",
+        "body": "fgdfgfd",
+        "userId": 1
+      },
+      "id": 17
     }
   ]
 }

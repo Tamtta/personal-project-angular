@@ -30,7 +30,6 @@
     &:hover {
       // transform: scale(1.1);
       background-color: rgb(255, 255, 255);
-
     }
 
     .description {
@@ -71,3 +70,76 @@
 }
 
 // rgb(0, 108, 0)
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .root {
+    display: flex;
+    width: 300px;
+    align-items: center;
+
+    button {
+      margin-left: 10px;
+      padding: 8px;
+      background-color: rgba(255, 255, 255, 0);
+      border-color: rgba(255, 255, 255, 0.498);
+      border-radius: 50%;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      &:active {
+        background-color: white;
+      }
+    }
+
+    .item {
+      display: flex;
+      width: 100%;
+      background-color: rgba(216, 216, 216, 0.511);
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        // transform: scale(1.1);
+        background-color: rgb(255, 255, 255);
+      }
+
+      .description {
+        display: flex;
+        flex-grow: 1;
+        font-size: 18px;
+        margin-left: 5px;
+        align-items: center;
+      }
+
+      .amount {
+        padding: 5px;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  .expense {
+    p {
+      color: rgb(108, 0, 0);
+      margin-bottom: 0;
+    }
+
+    .amount {
+      background-color: rgba(200, 134, 134, 0.699);
+    }
+  }
+
+  .income {
+    p {
+      color: rgb(0, 108, 0);
+      margin-bottom: 0;
+    }
+
+    .amount {
+      background-color: rgba(128, 171, 128, 0.699);
+    }
+  }
+}
