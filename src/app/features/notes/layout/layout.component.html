@@ -1,23 +1,23 @@
 <div class="nav">
   <div class="headers">
-    <h1>
+    <h1 scaleAnim>
       <a routerLink="/dashboard">{{ "DASHBOARD" | translate }}</a>
     </h1>
-    <h1>
+    <h1 scaleAnim>
       <a routerLink="/dashboard/user">{{ "USER" | translate }}</a>
     </h1>
-    <h1>
+    <h1 scaleAnim>
       <a routerLink="/dashboard/notes" class="notes">{{
         "NOTES" | translate
       }}</a>
     </h1>
-    <h1>
+    <h1 scaleAnim>
       <a routerLink="/dashboard/books">{{ "BUDGETCALC" | translate }}</a>
     </h1>
   </div>
 
   <div>
-    <button (click)="logOut()">
+    <button (click)="logOut()" scaleAnim>
       <h1>{{ "LOGOUT" | translate }}</h1>
     </button>
   </div>

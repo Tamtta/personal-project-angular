@@ -19,4 +19,19 @@ export class AppComponent {
   useEn() {
     this.translateService.use('en');
   }
+
+  get isKa() {
+    return this.isLanguage('ka');
+  }
+
+  get isEn() {
+    return this.isLanguage('en');
+  }
+
+  private isLanguage(lang: string): boolean {
+    const defLang = this.translateService.defaultLang;
+    const currLang = this.translateService.currentLang;
+
+    return currLang ? currLang == lang : defLang == lang;
+  }
 }

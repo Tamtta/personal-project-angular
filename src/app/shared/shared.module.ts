@@ -11,10 +11,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AnimDirective } from './directives/animation.directive';
+
 @NgModule({
-  declarations: [],
+  declarations: [AnimDirective],
   imports: [CommonModule],
   exports: [
     TranslateModule,
@@ -28,8 +29,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
-    // BrowserAnimationsModule,
     MatDialogModule,
+    AnimDirective,
   ],
 })
 export class SharedModule {}

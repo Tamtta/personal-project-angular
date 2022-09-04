@@ -1,5 +1,5 @@
 <div class="main-container">
-  <div class="search-bar-container">
+  <div class="search-bar-container" scaleAnim>
     <mat-form-field appearance="fill" class="mat-field">
       <mat-label>{{ "SEARCH" | translate }}</mat-label>
       <mat-icon matPrefix>search</mat-icon>
@@ -20,6 +20,7 @@
       (click)="toDetails(note.id)"
       [title]="note.note.title"
       [body]="note.note.body"
+      scaleAnim
     ></app-note-card>
   </div>
 
