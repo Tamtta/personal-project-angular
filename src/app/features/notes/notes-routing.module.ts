@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
+import { NoteDetailsResolver } from './note-details/note-details-resolver.service';
 import { NoteDetailsComponent } from './note-details/note-details.component';
 import { NotesListComponent } from './notes-list/notes-list.component';
 
@@ -11,7 +12,11 @@ const routes: Routes = [
     children: [
       { path: '', component: NotesListComponent },
       // { path: 'new', component: NoteDetailsComponent },
-      { path: ':id', component: NoteDetailsComponent },
+      {
+        path: ':id',
+        component: NoteDetailsComponent,
+        resolve: { userResolvedData: NoteDetailsResolver },
+      },
     ],
   },
 ];

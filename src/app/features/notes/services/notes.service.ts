@@ -1,10 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { map } from 'rxjs';
-import { LogInComponent } from '../../auth/log-in/log-in.component';
-import { AccountService } from '../../auth/services/account.service';
-import { Note, NoteAPI } from '../note.model';
+import { UserChangeService } from 'src/app/shared/services/user-change.service';
+import { Note, NoteAPI } from '../interfaces/note.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,13 +12,13 @@ export class NotesService {
   currentUserID!: number;
   private Url$ = 'http://localhost:3000/';
 
-  constructor(private http: HttpClient) {
-    // const currentUserId = localStorage.getItem('id');
-    // const currentUserId = this.accountService.userValue.id;
-    // console.log(currentUserId);
-    // if (currentUserId) this.currentUserID = +currentUserId;
-
-    this.get$();
+  constructor(
+    private http: HttpClient,
+    private userChangeService: UserChangeService
+  ) {
+    this.userChangeService.userChange.subscribe((id) => {
+      this.currentUserID = id;
+    });
   }
 
   getById$(id: number) {
@@ -33,13 +31,11 @@ export class NotesService {
   }
 
   add(note: Note) {
-    this.currentUserID = JSON.parse(localStorage.getItem('id')!);
     note.userId = this.currentUserID;
     return this.http.post(`${this.Url$}notes`, { note });
   }
 
   update$(id: number, body: NoteAPI) {
-    this.currentUserID = JSON.parse(localStorage.getItem('id')!);
     body.note.userId = this.currentUserID;
     return this.http.put(`${this.Url$}notes/${id}`, body);
   }

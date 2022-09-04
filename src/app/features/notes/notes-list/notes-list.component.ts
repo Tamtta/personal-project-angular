@@ -7,7 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { Note } from '../note.model';
+import { Note } from '../interfaces/note.model';
 import { NotesService } from '../services/notes.service';
 
 @Component({

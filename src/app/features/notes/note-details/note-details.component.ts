@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { map, Observable } from 'rxjs';
-import { Note, NoteAPI } from '../note.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Note } from '../interfaces/note.model';
 import { NotesService } from '../services/notes.service';
 
 @Component({
@@ -15,6 +15,11 @@ export class NoteDetailsComponent implements OnInit {
   note$!: Observable<Note>;
   noteId!: number;
   new: boolean = false;
+  note: Note = {
+    body: '',
+    title: '',
+    userId: 0,
+  };
 
   constructor(
     private noteService: NotesService,
@@ -23,20 +28,14 @@ export class NoteDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      if (params['id'] != 0) {
-        this.note$ = this.noteService.getById$(params['id']).pipe(
-          map((v: any) => {
-            this.noteId = v.id;
-            return v.note;
-          })
-        );
-        this.noteId = params['id'];
-        this.new = false;
-      } else {
-        this.new = true;
-      }
-    });
+    const { notes, id } = this.route.snapshot.data['userResolvedData'];
+    if (id != 0) {
+      this.note = notes.note;
+      this.noteId = id;
+      this.new = false;
+    } else {
+      this.new = true;
+    }
   }
 
   onSubmit(form: NgForm) {

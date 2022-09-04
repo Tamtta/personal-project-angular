@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { BehaviorSubject, map, Observable } from 'rxjs';
-import { IUser } from '../auth.interface';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { IUser } from '../interfaces/auth.interface';
+import { UserChangeService } from 'src/app/shared/services/user-change.service';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -11,7 +12,11 @@ export class AccountService {
   public user: Observable<IUser>;
   // public users: IUser[] = [];
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private userChangeService: UserChangeService
+  ) {
     this.userSubject = new BehaviorSubject<IUser>(
       JSON.parse(localStorage.getItem('user')!)
     );
@@ -27,11 +32,9 @@ export class AccountService {
     localStorage.removeItem('user');
     localStorage.removeItem('username');
     localStorage.removeItem('id');
-    // this.changeDet.markForCheck();
-    //
 
-    // this.userSubject.next(null);
     this.router.navigate(['login']);
+    this.userChangeService.next(0);
   }
 
   register(user: IUser) {
@@ -43,7 +46,11 @@ export class AccountService {
   }
 
   getById(id: string): Observable<IUser> {
-    return this.http.get<IUser>(`${this.mainUrl}users/${id}`);
+    return this.http.get<IUser>(`${this.mainUrl}users/${id}`).pipe(
+      tap((user) => {
+        this.userChangeService.next(+user.id);
+      })
+    );
   }
 
   update(id: string, params: IUser) {

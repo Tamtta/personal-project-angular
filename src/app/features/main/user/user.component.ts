@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { passwordValidator } from '../../auth/password-validator';
+import { passwordValidator } from '../../../shared/utils/password-validator.fn';
 import { AccountService } from '../../auth/services/account.service';
 
 @Component({

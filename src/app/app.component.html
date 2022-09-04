@@ -1,6 +1,16 @@
 <div class="container">
-  <button [class.inactive]="!isEn" (click)="useEn()" class="btnENG"></button>
-  <button [class.inactive]="!isKa" (click)="useKa()" class="btnKA"></button>
+  <button
+    [class.inactive]="!isEn"
+    (click)="useEn()"
+    class="btnENG"
+    scaleAnim
+  ></button>
+  <button
+    [class.inactive]="!isKa"
+    (click)="useKa()"
+    class="btnKA"
+    scaleAnim
+  ></button>
 </div>
 <div class="loader">
   <span class="loader__element"></span>

@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
-import { IUser } from '../auth.interface';
-import { passwordValidator } from '../password-validator';
+import { IUser } from '../interfaces/auth.interface';
+import { passwordValidator } from '../../../shared/utils/password-validator.fn';
 import { AccountService } from '../services/account.service';
 
 @Component({

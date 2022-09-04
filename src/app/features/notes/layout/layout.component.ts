@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnInit,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../../auth/services/account.service';
 
 @Component({

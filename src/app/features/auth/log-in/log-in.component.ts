@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, map, tap, throwError } from 'rxjs';
-import { IUser } from '../auth.interface';
+import { IUser } from '../interfaces/auth.interface';
 import { AccountService } from '../services/account.service';
 
 @Component({
