@@ -16,7 +16,13 @@ const routes: Routes = [
   },
 
   {
-    path: '',
+    path: '../login',
+    loadChildren: () => import('../auth/auth.module').then((m) => m.AuthModule),
+    canActivate: [LoggedUserGuard],
+  },
+
+  {
+    path: '../register',
     loadChildren: () => import('../auth/auth.module').then((m) => m.AuthModule),
     canActivate: [LoggedUserGuard],
   },
