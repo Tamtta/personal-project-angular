@@ -1,11 +1,5 @@
-import { JsonPipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, map, tap, throwError } from 'rxjs';
@@ -66,6 +60,7 @@ export class LogInComponent implements OnInit {
     let usernameIndex;
     let index2;
     let usernamePass: IUser;
+    // console.log('ok', this.accountService.userValue.id);
 
     if (
       this.users.findIndex((p) => p.username == this.form.value.username) == -1
@@ -95,7 +90,6 @@ export class LogInComponent implements OnInit {
       this.users.findIndex((p) => p.username == this.form.value.username) ==
       this.users.findIndex((p) => p.password == this.form.value.password)
     ) {
-      console.log('wee 5');
       index1 = this.users.findIndex(
         (p) => p.username == this.form.value.username
       );
@@ -106,6 +100,7 @@ export class LogInComponent implements OnInit {
       );
       usernamePass = this.users[index2];
 
+      console.log('wee 5');
       this.accountService
         .getById(usernamePass.id || usernameIndex.id)
         .pipe(
@@ -113,7 +108,8 @@ export class LogInComponent implements OnInit {
             localStorage.setItem('user', JSON.stringify(user));
             localStorage.setItem('username', JSON.stringify(user.username));
             localStorage.setItem('id', JSON.stringify(user.id));
-            window.location.reload();
+
+            // window.location.reload();
 
             console.log(localStorage);
             this.router.navigate(['../dashboard']);

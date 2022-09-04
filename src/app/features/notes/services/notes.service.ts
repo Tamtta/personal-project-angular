@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { LogInComponent } from '../../auth/log-in/log-in.component';
+import { AccountService } from '../../auth/services/account.service';
 import { Note, NoteAPI } from '../note.model';
 
 @Injectable({
@@ -13,9 +14,11 @@ export class NotesService {
   currentUserID!: number;
   private Url$ = 'http://localhost:3000/';
 
-  constructor(private router: Router, private http: HttpClient) {
-    const currentUserId = localStorage.getItem('id');
-    if (currentUserId) this.currentUserID = +currentUserId;
+  constructor(private http: HttpClient) {
+    // const currentUserId = localStorage.getItem('id');
+    // const currentUserId = this.accountService.userValue.id;
+    // console.log(currentUserId);
+    // if (currentUserId) this.currentUserID = +currentUserId;
 
     this.get$();
   }
@@ -30,17 +33,19 @@ export class NotesService {
   }
 
   add(note: Note) {
-    let newNote = this.notes.push(note);
-    note.userId = +this.currentUserID;
+    this.currentUserID = JSON.parse(localStorage.getItem('id')!);
+    note.userId = this.currentUserID;
     return this.http.post(`${this.Url$}notes`, { note });
   }
 
   update$(id: number, body: NoteAPI) {
+    this.currentUserID = JSON.parse(localStorage.getItem('id')!);
     body.note.userId = this.currentUserID;
     return this.http.put(`${this.Url$}notes/${id}`, body);
   }
 
   get$() {
+    this.currentUserID = JSON.parse(localStorage.getItem('id')!);
     return this.http
       .get<NoteAPI[]>(`${this.Url$}notes`)
       .pipe(

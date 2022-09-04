@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import {
-  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ElementRef,
@@ -8,8 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Note, NoteAPI } from '../note.model';
+import { Note } from '../note.model';
 import { NotesService } from '../services/notes.service';
 
 @Component({
