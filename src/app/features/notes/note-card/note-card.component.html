@@ -3,7 +3,7 @@
     <div class="note-card-content">
       <h1 class="note-card-title">
         {{ title }}
-        <span>{{ date | date: format }}</span>
+        <span>{{ date | customDatePipe: format }}</span>
       </h1>
       <!-- <span>{{ date | date: format }}</span> -->
 

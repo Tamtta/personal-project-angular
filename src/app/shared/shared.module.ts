@@ -13,9 +13,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AnimDirective } from './directives/animation.directive';
+import { CustomDatePipePipe } from './pipes/custom-date-pipe.pipe';
 
 @NgModule({
-  declarations: [AnimDirective],
+  declarations: [AnimDirective, CustomDatePipePipe],
   imports: [CommonModule],
   exports: [
     TranslateModule,
@@ -31,6 +32,7 @@ import { AnimDirective } from './directives/animation.directive';
     MatButtonModule,
     MatDialogModule,
     AnimDirective,
+    CustomDatePipePipe,
   ],
 })
 export class SharedModule {}
