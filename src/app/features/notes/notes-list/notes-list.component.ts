@@ -8,6 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { catchError, EMPTY } from 'rxjs';
 import { Note } from '../interfaces/note.model';
 import { NotesService } from '../services/notes.service';
 
@@ -56,7 +57,10 @@ export class NotesListComponent implements OnInit {
 
   delete(id: number) {
     console.log('deleting...', id);
-    this.noteService.delete$(id).subscribe((t) => this.loadNotes());
+    this.noteService
+      .delete$(id)
+      .pipe(catchError(() => EMPTY))
+      .subscribe((t) => this.loadNotes());
   }
 
   search(query: string) {

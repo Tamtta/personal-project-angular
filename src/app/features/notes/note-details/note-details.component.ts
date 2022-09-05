@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { catchError, EMPTY, Observable } from 'rxjs';
 import { Note } from '../interfaces/note.model';
 import { NotesService } from '../services/notes.service';
 
@@ -42,6 +42,7 @@ export class NoteDetailsComponent implements OnInit {
     if (this.new) {
       this.noteService
         .add(form.value)
+        .pipe(catchError(() => EMPTY))
         .subscribe(() => this.router.navigateByUrl('/dashboard/notes'));
     } else {
       this.noteService
@@ -51,6 +52,7 @@ export class NoteDetailsComponent implements OnInit {
             body: form.value.body,
           },
         })
+        .pipe(catchError(() => EMPTY))
         .subscribe(() => {
           this.router.navigateByUrl('/dashboard/notes');
         });

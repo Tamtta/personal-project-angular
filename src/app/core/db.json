@@ -23,6 +23,14 @@
       "username": "wee12",
       "password": "987654321q",
       "confirm": "987654321q"
+    },
+    {
+      "name": "1234",
+      "mail": "jojua@gmail.co",
+      "username": "tam123",
+      "password": "qwerty0",
+      "confirm": "qwerty0",
+      "id": 4
     }
   ],
   "notes": [
@@ -36,16 +44,16 @@
     },
     {
       "note": {
-        "title": "555",
-        "body": "fgdfgfd",
+        "title": "wee-",
+        "body": "note 3",
         "userId": 1
       },
       "id": 17
     },
     {
       "note": {
-        "title": "555123",
-        "body": "dgdfgf",
+        "title": "wee-",
+        "body": "note 2",
         "userId": 1
       },
       "id": 18
@@ -60,8 +68,8 @@
     },
     {
       "note": {
-        "title": "dfds",
-        "body": "fsfdsfds",
+        "title": "wee-",
+        "body": "note 1",
         "userId": 1
       },
       "id": 20

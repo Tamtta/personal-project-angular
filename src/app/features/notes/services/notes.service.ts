@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { catchError, EMPTY, map } from 'rxjs';
 import { UserChangeService } from 'src/app/shared/services/user-change.service';
 import { Note, NoteAPI } from '../interfaces/note.model';
 
@@ -16,9 +16,11 @@ export class NotesService {
     private http: HttpClient,
     private userChangeService: UserChangeService
   ) {
-    this.userChangeService.userChange.subscribe((id) => {
-      this.currentUserID = id;
-    });
+    this.userChangeService.userChange
+      .pipe(catchError(() => EMPTY))
+      .subscribe((id) => {
+        this.currentUserID = id;
+      });
   }
 
   getById$(id: number) {
@@ -42,13 +44,12 @@ export class NotesService {
 
   get$() {
     this.currentUserID = JSON.parse(localStorage.getItem('id')!);
-    return this.http
-      .get<NoteAPI[]>(`${this.Url$}notes`)
-      .pipe(
-        map((v) =>
-          v.filter((n: NoteAPI) => n?.note?.userId == this?.currentUserID)
-        )
-      );
+    return this.http.get<NoteAPI[]>(`${this.Url$}notes`).pipe(
+      map((v) =>
+        v.filter((n: NoteAPI) => n?.note?.userId == this?.currentUserID)
+      ),
+      catchError(() => EMPTY)
+    );
   }
 
   delete$(id: number) {

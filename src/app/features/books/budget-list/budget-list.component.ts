@@ -1,6 +1,7 @@
 import { isPlatformWorkerApp } from '@angular/common';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -16,7 +17,7 @@ import { Update } from '../interfaces/update.interface';
   selector: 'app-budget-list',
   templateUrl: './budget-list.component.html',
   styleUrls: ['./budget-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class BudgetListComponent implements OnInit {
   @Input() items!: Budget[];
@@ -25,7 +26,9 @@ export class BudgetListComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.changeDet.markForCheck();
+  }
 
   onDelete(item: Budget) {
     this.delete.emit(item);

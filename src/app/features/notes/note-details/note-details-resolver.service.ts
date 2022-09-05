@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  ActivatedRouteSnapshot,
-  Resolve,
-  RouterStateSnapshot,
-} from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { EMPTY, Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Note } from '../interfaces/note.model';
@@ -18,8 +14,7 @@ export class NoteDetailsResolver
   constructor(private noteService: NotesService) {}
 
   resolve(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    route: ActivatedRouteSnapshot
   ): Observable<{ notes?: Note[]; id: number | string }> {
     const id = route.paramMap.get('id') || 0;
     if (id != '0') {

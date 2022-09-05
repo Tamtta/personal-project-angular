@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, catchError, EMPTY, Observable, tap } from 'rxjs';
 import { IUser } from '../interfaces/auth.interface';
 import { UserChangeService } from 'src/app/shared/services/user-change.service';
 
@@ -49,7 +49,8 @@ export class AccountService {
     return this.http.get<IUser>(`${this.mainUrl}users/${id}`).pipe(
       tap((user) => {
         this.userChangeService.next(+user.id);
-      })
+      }),
+      catchError(() => EMPTY)
     );
   }
 

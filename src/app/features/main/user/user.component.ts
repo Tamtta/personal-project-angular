@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { catchError, EMPTY } from 'rxjs';
 import { passwordValidator } from '../../../shared/utils/password-validator.fn';
 import { AccountService } from '../../auth/services/account.service';
 
@@ -51,7 +52,7 @@ export class UserComponent implements OnInit {
 
     this.accountService
       .getById(this.id)
-      .pipe()
+      .pipe(catchError(() => EMPTY))
       .subscribe((res) =>
         this.updateForm.setValue({
           name: res.name,
@@ -77,7 +78,10 @@ export class UserComponent implements OnInit {
       confirm: this.updateForm.value.confirm,
     };
 
-    this.accountService.update(this.id, update).pipe().subscribe();
+    this.accountService
+      .update(this.id, update)
+      .pipe(catchError(() => EMPTY))
+      .subscribe();
 
     localStorage.removeItem('user');
     localStorage.setItem('user', JSON.stringify(update));

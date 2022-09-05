@@ -1,4 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  MatDialog,
+  MatDialogModule,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
+import { TranslateModule } from '@ngx-translate/core';
+import { AppComponent } from 'src/app/app.component';
+import { AppModule } from 'src/app/app.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { EditComponent } from './edit.component';
 
@@ -8,9 +18,13 @@ describe('EditComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditComponent ]
-    })
-    .compileComponents();
+      declarations: [EditComponent],
+      imports: [MatDialogModule, SharedModule, TranslateModule.forRoot()],
+      providers: [
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: [] },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(EditComponent);
     component = fixture.componentInstance;

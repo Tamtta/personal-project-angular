@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { first } from 'rxjs';
-import { IUser } from '../interfaces/auth.interface';
+import { catchError, EMPTY, first } from 'rxjs';
 import { passwordValidator } from '../../../shared/utils/password-validator.fn';
 import { AccountService } from '../services/account.service';
 
@@ -69,7 +68,10 @@ export class RegisterComponent implements OnInit {
 
     this.accountService
       .register(this.form.value)
-      .pipe(first())
+      .pipe(
+        first(),
+        catchError(() => EMPTY)
+      )
       .subscribe(() => {
         this.router.navigate(['../login'], { relativeTo: this.route });
       });
