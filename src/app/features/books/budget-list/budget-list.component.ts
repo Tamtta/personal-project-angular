@@ -1,5 +1,12 @@
 import { isPlatformWorkerApp } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EditComponent } from '../edit/edit.component';
 import { Budget } from '../interfaces/budget.class';
@@ -9,6 +16,7 @@ import { Update } from '../interfaces/update.interface';
   selector: 'app-budget-list',
   templateUrl: './budget-list.component.html',
   styleUrls: ['./budget-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BudgetListComponent implements OnInit {
   @Input() items!: Budget[];

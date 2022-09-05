@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Budget } from '../interfaces/budget.class';
 import { Update } from '../interfaces/update.interface';
 
@@ -6,6 +6,7 @@ import { Update } from '../interfaces/update.interface';
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainPageComponent implements OnInit {
   items: Budget[] = [];

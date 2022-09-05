@@ -1,5 +1,12 @@
 import { NgForOf } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Budget } from '../interfaces/budget.class';
 
@@ -7,6 +14,7 @@ import { Budget } from '../interfaces/budget.class';
   selector: 'app-add-item-form',
   templateUrl: './add-item-form.component.html',
   styleUrls: ['./add-item-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddItemFormComponent implements OnInit {
   @Input() item!: Budget;

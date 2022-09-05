@@ -1,10 +1,18 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { Budget } from '../../interfaces/budget.class';
 
 @Component({
   selector: 'app-budget-card',
   templateUrl: './budget-card.component.html',
   styleUrls: ['./budget-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BudgetCardComponent implements OnInit {
   @Input() isIncome: boolean = true;
