@@ -8,3 +8,8 @@ export class NoteAPI {
   note!: Note;
   id?: number;
 }
+
+export interface NoteAPIArr {
+  note?: Note[];
+  id: number | string;
+}

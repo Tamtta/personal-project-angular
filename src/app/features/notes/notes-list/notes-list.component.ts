@@ -18,7 +18,6 @@ import { NotesService } from '../services/notes.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotesListComponent implements OnInit {
-  // notes$: Observable<any[]> | undefined;
   filtered: any[] = [];
   notes: any[] = [];
   @ViewChild('searchNote') ref!: ElementRef<HTMLInputElement>;
@@ -96,7 +95,7 @@ export class NotesListComponent implements OnInit {
 
       return false;
     });
-    // console.log('match', match);
+    console.log('match', match);
     return match;
   }
 
