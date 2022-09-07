@@ -31,13 +31,11 @@ export class NotesListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.filtered = this.loadNotes();
     this.loadNotes();
     this.search('');
   }
 
   loadNotes() {
-    // console.log('axali');
     this.noteService.get$().subscribe((notes) => {
       this.notes = notes;
       console.log('axali', this.notes);
@@ -75,8 +73,6 @@ export class NotesListComponent implements OnInit {
 
     let unique = this.removeDub(results);
     this.filtered = unique;
-    // console.log(this.filtered);
-    // this.match(results);
   }
 
   removeDub(arr: Array<any>): Array<string> {

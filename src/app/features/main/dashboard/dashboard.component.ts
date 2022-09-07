@@ -1,6 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { LogInComponent } from '../../auth/log-in/log-in.component';
 import { AccountService } from '../../auth/services/account.service';
 
 @Component({

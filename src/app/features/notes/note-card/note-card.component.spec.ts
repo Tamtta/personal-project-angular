@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppModule } from 'src/app/app.module';
-import { CustomDatePipePipe } from 'src/app/shared/pipes/custom-date-pipe.pipe';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { NoteCardComponent } from './note-card.component';

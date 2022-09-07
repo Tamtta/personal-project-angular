@@ -13,14 +13,13 @@ import { AccountService } from '../services/account.service';
 })
 export class RegisterComponent implements OnInit {
   form!: FormGroup;
-  // loading = false;
   submitted = false;
 
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private router: Router,
-    private accountService: AccountService // private alertService: AlertService
+    private accountService: AccountService
   ) {}
 
   ngOnInit() {
@@ -62,9 +61,6 @@ export class RegisterComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-
-    // this.loading = true;
-    // console.log(this.f);
 
     this.accountService
       .register(this.form.value)

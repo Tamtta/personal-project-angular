@@ -1,13 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {
-  MatDialog,
   MatDialogModule,
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { TranslateModule } from '@ngx-translate/core';
-import { AppComponent } from 'src/app/app.component';
-import { AppModule } from 'src/app/app.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { EditComponent } from './edit.component';

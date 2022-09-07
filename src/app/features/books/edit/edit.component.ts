@@ -15,8 +15,6 @@ import { Budget } from '../interfaces/budget.class';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditComponent implements OnInit {
-  // @Input() item!: Budget;
-
   constructor(
     public dialog: MatDialogRef<EditComponent>,
     @Inject(MAT_DIALOG_DATA) public item: Budget

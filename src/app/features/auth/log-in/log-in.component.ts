@@ -26,7 +26,7 @@ export class LogInComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private accountService: AccountService,
-    private router: Router // private changeDet: ChangeDetectorRef
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -57,39 +57,23 @@ export class LogInComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    // this.changeDet.markForCheck();
 
     let index1;
     let usernameIndex;
     let index2;
     let usernamePass: IUser;
-    // console.log('ok', this.accountService.userValue.id);
 
     if (
       this.users.findIndex((p) => p.username == this.form.value.username) == -1
     ) {
       console.log('wee 1');
       this.userExist = false;
-    }
-    // else if (
-    //   this.users.findIndex((p) => p.username == this.form.value.username)
-    // ) {
-    //   console.log('wee 2');
-    //   this.userExist = true;
-    // }
-    else if (
+    } else if (
       this.users.findIndex((p) => p.password == this.form.value.password) == -1
     ) {
       console.log('wee 3');
       this.incorrectPassw = true;
-    }
-    // else if (
-    //   this.users.findIndex((p) => p.password == this.form.value.password)
-    // ) {
-    //   console.log('wee 4');
-    //   this.incorrectPassw = false;
-    // }
-    else if (
+    } else if (
       this.users.findIndex((p) => p.username == this.form.value.username) ==
       this.users.findIndex((p) => p.password == this.form.value.password)
     ) {
@@ -111,8 +95,6 @@ export class LogInComponent implements OnInit {
             localStorage.setItem('user', JSON.stringify(user));
             localStorage.setItem('username', JSON.stringify(user.username));
             localStorage.setItem('id', JSON.stringify(user.id));
-
-            // window.location.reload();
 
             console.log(localStorage);
             this.router.navigate(['../dashboard']);

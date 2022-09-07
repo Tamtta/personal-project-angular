@@ -1,5 +1,4 @@
 .note-card-container {
-  // background-color: red;
   background-color: #ceebd9;
   border: 1.5px solid #bae7cc;
   border-radius: 5px;
@@ -12,7 +11,6 @@
     box-shadow: 0px 0px 0px 4px rgba(black, 0.068);
 
     .delete-btn {
-      // box-shadow: none;
       opacity: 1;
       transition-delay: 0.3s;
     }
@@ -33,7 +31,6 @@
           display: inline-block;
           font-size: 10px;
           font-weight: lighter;
-          // height: 15px;
         }
       }
 
@@ -86,10 +83,6 @@
         background-color: rgba(255, 255, 255, 0);
         transform: scale(1);
       }
-
-      // .mat-button-focus-overlay {
-      //   background-color: none;
-      // }
     }
   }
 }

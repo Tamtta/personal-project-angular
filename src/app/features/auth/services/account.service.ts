@@ -10,7 +10,6 @@ export class AccountService {
   private mainUrl = 'http://localhost:3000/';
   private userSubject: BehaviorSubject<IUser>;
   public user: Observable<IUser>;
-  // public users: IUser[] = [];
 
   constructor(
     private router: Router,

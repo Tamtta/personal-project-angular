@@ -28,7 +28,6 @@
     cursor: pointer;
 
     &:hover {
-      // transform: scale(1.1);
       background-color: rgb(255, 255, 255);
     }
 
@@ -69,8 +68,6 @@
   }
 }
 
-// rgb(0, 108, 0)
-
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .root {
     display: flex;
@@ -102,7 +99,6 @@
       cursor: pointer;
 
       &:hover {
-        // transform: scale(1.1);
         background-color: rgb(255, 255, 255);
       }
 
@@ -178,7 +174,6 @@
       cursor: pointer;
 
       &:hover {
-        // transform: scale(1.1);
         background-color: rgb(255, 255, 255);
       }
 
