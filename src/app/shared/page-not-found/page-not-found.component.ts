@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
     trigger('simple', [
       transition(
         ':enter',
-        animate('1s', style({ transform: 'translateX(300%)', opacity: '0' }))
+        animate('3s', style({ transform: 'translateX(300%)', opacity: '0' }))
       ),
     ]),
   ],
@@ -23,6 +23,6 @@ export class PageNotFoundComponent implements OnInit {
   ngOnInit(): void {
     setInterval(() => {
       this.show = !this.show;
-    }, 1000);
+    }, 3000);
   }
 }

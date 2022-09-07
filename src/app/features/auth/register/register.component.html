@@ -23,9 +23,16 @@
       <input
         type="text"
         formControlName="username"
-        placeholder="Choose username"
+        placeholder="Use only letters and - symbol"
       />
-      <div class="alert-div"></div>
+      <div class="alert-div">
+        <!-- <p
+          *ngIf="form.value.username && form.value.username.invalid"
+          class="alert"
+        >
+          Username should contain only letters and - symbol
+        </p> -->
+      </div>
     </div>
 
     <div>
@@ -43,9 +50,16 @@
       <input
         type="password"
         formControlName="password"
-        placeholder="Enter password"
+        placeholder="Use at least one symbol/number"
       />
-      <div class="alert-div"></div>
+      <div class="alert-div">
+        <p
+          *ngIf="form.value.password && form.value.password.length < 8"
+          class="alert"
+        >
+          {{ "TOOSHORT" | translate }}
+        </p>
+      </div>
     </div>
 
     <div>
@@ -56,11 +70,21 @@
         placeholder="Confirm password"
       />
       <div class="alert-div">
-        <p *ngIf="form.value.password != form.value.confirm" class="alert">
-          Passwords don't match
+        <p
+          *ngIf="
+            form.value.confirm && form.value.password != form.value.confirm
+          "
+          class="alert"
+        >
+          {{ "DONTMATCH" | translate }}
         </p>
       </div>
     </div>
+
+    <p class="sign-up">
+      {{ "HAVEANACCOUNT" | translate }}
+      <a routerLink="/login">{{ "LOGIN" | translate }}!</a>
+    </p>
 
     <div class="btn-container">
       <button class="button" [disabled]="form.invalid">

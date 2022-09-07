@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CatalogueComponent } from './catalogue/catalogue.component';
+import { HeaderComponent } from './header/header.component';
 import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    children: [{ path: '', component: CatalogueComponent }],
+    children: [{ path: '', component: HeaderComponent }],
   },
 ];
 
@@ -15,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class BooksRoutingModule {}
+export class BudgetManagerRoutingModule {}

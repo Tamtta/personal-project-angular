@@ -34,8 +34,19 @@
         <p *ngIf="incorrectPassw" class="alert">
           {{ "PASSWORDISINCORRECT" | translate }}
         </p>
+        <p
+          *ngIf="form.value.password && form.value.password.length < 8"
+          class="alert"
+        >
+          {{ "TOOSHORT" | translate }}
+        </p>
       </div>
     </div>
+
+    <p class="sign-up">
+      {{ "DONTHAVEANACCOUNT" | translate }}
+      <a routerLink="/register">{{ "REGISTER" | translate }}!</a>
+    </p>
 
     <div class="btn-container">
       <button class="button">{{ "LOGINBTN" | translate }}</button>

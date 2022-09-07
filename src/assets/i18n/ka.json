@@ -43,5 +43,9 @@
   "BUDGETCALCULATOR": "ბიუჯეტის კალკულატორი",
   "EDIT": "რედაქტირება",
   "BUDGETCALC": "ბიუჯეტმენეჯერი",
-  "WOOPS": "უპსს"
+  "WOOPS": "უპსს",
+  "DONTHAVEANACCOUNT": "არ გაქვთ ანგარიში?",
+  "HAVEANACCOUNT": "გაქვთ ანგარიში?",
+  "DONTMATCH": "პაროლი არ ემთხვევა",
+  "TOOSHORT": "პაროლი ძალიან მოკლეა"
 }

@@ -43,5 +43,9 @@
   "BUDGETCALCULATOR": "Your budget calculator",
   "EDIT": "Edit",
   "BUDGETCALC": "Budget manager",
-  "WOOPS": "Whoops"
+  "WOOPS": "Whoops",
+  "DONTHAVEANACCOUNT": "Don't have an account?",
+  "HAVEANACCOUNT": "Already have an account?",
+  "DONTMATCH": "Passwords don't match",
+  "TOOSHORT": "Password is too short"
 }

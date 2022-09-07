@@ -33,9 +33,11 @@ const routes: Routes = [
       import('../notes/notes.module').then((m) => m.NotesModule),
   },
   {
-    path: 'books',
+    path: 'budget-manager',
     loadChildren: () =>
-      import('../books/books.module').then((m) => m.BooksModule),
+      import('../books/budget-manager.module').then(
+        (m) => m.BudgetManagerModule
+      ),
   },
 ];
 
