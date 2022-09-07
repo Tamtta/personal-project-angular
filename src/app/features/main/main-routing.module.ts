@@ -35,7 +35,7 @@ const routes: Routes = [
   {
     path: 'budget-manager',
     loadChildren: () =>
-      import('../books/budget-manager.module').then(
+      import('../budget-manager/budget-manager.module').then(
         (m) => m.BudgetManagerModule
       ),
   },

@@ -19,8 +19,8 @@ import { NotesService } from '../services/notes.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotesListComponent implements OnInit {
-  filtered: any[] = [];
-  notes: any[] = [];
+  filtered: Array<any> = [];
+  notes: Array<any> = [];
   @ViewChild('searchNote') ref!: ElementRef<HTMLInputElement>;
 
   constructor(
@@ -76,8 +76,9 @@ export class NotesListComponent implements OnInit {
   }
 
   removeDub(arr: Array<any>): Array<string> {
+    console.log(arr, 'arr');
     let unique: Set<string> = new Set<string>();
-    arr.forEach((value) => unique.add(value));
+    arr.forEach((value: string) => unique.add(value));
     console.log(Array.from(unique), 'Hi');
     return Array.from(unique);
   }
