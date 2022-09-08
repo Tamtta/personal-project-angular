@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "name": "weeee",
+      "name": "weee",
       "mail": "jojua.tamta99@gmail.com",
       "username": "wee-",
       "password": "1234567y",
@@ -100,11 +100,19 @@
     },
     {
       "note": {
-        "title": "uup",
-        "body": "",
+        "title": "wee-",
+        "body": "note 4\n",
         "userId": 1
       },
       "id": 23
+    },
+    {
+      "note": {
+        "title": "test",
+        "body": "test note",
+        "userId": 6
+      },
+      "id": 24
     }
   ]
 }

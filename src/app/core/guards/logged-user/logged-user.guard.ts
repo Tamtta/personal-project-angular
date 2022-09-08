@@ -23,7 +23,6 @@ export class LoggedUserGuard implements CanActivate {
     | boolean
     | UrlTree {
     if (localStorage.getItem('user')) {
-      console.log('auth-user guard is activated!');
       this.router.navigate(['/dashboard']);
 
       return false;

@@ -89,10 +89,9 @@ export class UserComponent implements OnInit {
     localStorage.setItem('username', update.username);
     this.updated = true;
     this.updateForm.reset();
-    console.log('updated', localStorage);
   }
 
   delete() {
-    this.accountService.delete(this.id).subscribe(() => console.log('deleted'));
+    this.accountService.delete(this.id).subscribe(() => alert('deleted'));
   }
 }

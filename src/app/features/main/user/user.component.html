@@ -93,7 +93,12 @@
         >
           {{ "UPDATE" | translate }}
         </button>
-        <button mat-raised-button color="primary" (click)="delete()">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="delete()"
+          [disabled]="updateForm.invalid"
+        >
           {{ "DELETE" | translate }}
         </button>
       </div>

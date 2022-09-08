@@ -66,12 +66,10 @@ export class LogInComponent implements OnInit {
     if (
       this.users.findIndex((p) => p.username == this.form.value.username) == -1
     ) {
-      console.log('wee 1');
       this.userExist = false;
     } else if (
       this.users.findIndex((p) => p.password == this.form.value.password) == -1
     ) {
-      console.log('wee 3');
       this.incorrectPassw = true;
     } else if (
       this.users.findIndex((p) => p.username == this.form.value.username) ==
@@ -86,8 +84,6 @@ export class LogInComponent implements OnInit {
         (p) => p.password == this.form.value.password
       );
       usernamePass = this.users[index2];
-
-      console.log('wee 5');
       this.accountService
         .getById(usernamePass.id || usernameIndex.id)
         .pipe(
@@ -96,7 +92,6 @@ export class LogInComponent implements OnInit {
             localStorage.setItem('username', JSON.stringify(user.username));
             localStorage.setItem('id', JSON.stringify(user.id));
 
-            console.log(localStorage);
             this.router.navigate(['../dashboard']);
           }),
           catchError((err: HttpErrorResponse) => {
@@ -111,7 +106,7 @@ export class LogInComponent implements OnInit {
         )
         .subscribe();
     } else {
-      console.log('something is wrong');
+      alert('something is wrong');
     }
   }
 }

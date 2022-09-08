@@ -38,7 +38,6 @@ export class NotesListComponent implements OnInit {
   loadNotes() {
     this.noteService.get$().subscribe((notes) => {
       this.notes = notes;
-      console.log('axali', this.notes);
       this.changeDet.markForCheck();
       this.search('');
     });
@@ -54,7 +53,6 @@ export class NotesListComponent implements OnInit {
   }
 
   delete(id: number) {
-    console.log('deleting...', id);
     this.noteService
       .delete$(id)
       .pipe(catchError(() => EMPTY))
@@ -68,20 +66,16 @@ export class NotesListComponent implements OnInit {
     terms = this.removeDub(terms);
     terms.forEach((term) => {
       let result: NoteAPI[] = this.match(term);
-      console.log('result', result);
       results = [...results, ...result];
     });
 
     let unique = this.removeDub(results);
-    console.log('unique', unique);
     this.filtered = unique;
   }
 
   removeDub(arr: Array<any>): Array<string> {
-    console.log(arr, 'arr');
     let unique: Set<string> = new Set<string>();
     arr.forEach((value: string) => unique.add(value));
-    console.log(Array.from(unique), 'Hi, unique');
     return Array.from(unique);
   }
 
@@ -98,7 +92,6 @@ export class NotesListComponent implements OnInit {
 
       return false;
     });
-    console.log('match', match);
     return match;
   }
 

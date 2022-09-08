@@ -20,8 +20,6 @@ export class NoteDetailsResolver
     if (id != '0') {
       return this.noteService.getById$(+id || 0).pipe(
         map((notes: Note) => {
-          // console.log('hi from resolver');
-          console.log(notes, id, 'hi from resolver');
           return { notes, id };
         }),
         catchError(() => EMPTY)
