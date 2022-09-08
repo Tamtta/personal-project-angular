@@ -3,6 +3,7 @@
     class="item expense"
     (click)="onCardClick()"
     [ngClass]="{ income: isIncome, expense: !isIncome }"
+    scaleAnim
   >
     <div class="description">
       <p>{{ item.description }}</p>

@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, EMPTY } from 'rxjs';
-import { Note } from '../interfaces/note.model';
+import { Note, NoteAPI } from '../interfaces/note.model';
 import { NotesService } from '../services/notes.service';
 
 @Component({
@@ -20,7 +20,7 @@ import { NotesService } from '../services/notes.service';
 })
 export class NotesListComponent implements OnInit {
   filtered: Array<any> = [];
-  notes: Array<any> = [];
+  notes: Array<NoteAPI> = [];
   @ViewChild('searchNote') ref!: ElementRef<HTMLInputElement>;
 
   constructor(
@@ -63,15 +63,17 @@ export class NotesListComponent implements OnInit {
 
   search(query: string) {
     query = query.toLowerCase().trim();
-    let results: Note[] = [];
+    let results: NoteAPI[] = [];
     let terms: string[] = query.split(' ');
     terms = this.removeDub(terms);
     terms.forEach((term) => {
-      let result: Note[] = this.match(term);
+      let result: NoteAPI[] = this.match(term);
+      console.log('result', result);
       results = [...results, ...result];
     });
 
     let unique = this.removeDub(results);
+    console.log('unique', unique);
     this.filtered = unique;
   }
 
@@ -79,11 +81,11 @@ export class NotesListComponent implements OnInit {
     console.log(arr, 'arr');
     let unique: Set<string> = new Set<string>();
     arr.forEach((value: string) => unique.add(value));
-    console.log(Array.from(unique), 'Hi');
+    console.log(Array.from(unique), 'Hi, unique');
     return Array.from(unique);
   }
 
-  match(query: string): Note[] {
+  match(query: string): NoteAPI[] {
     query = query.toLowerCase().trim();
     let match = this.notes.filter((note) => {
       if (note.note.title && note.note.title.toLowerCase().includes(query)) {
