@@ -9,8 +9,8 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, EMPTY } from 'rxjs';
-import { Note, NoteAPI } from '../interfaces/note.model';
-import { NotesService } from '../services/notes.service';
+import { Note, NoteAPI } from '../../interfaces/note.model';
+import { NotesService } from '../../services/notes.service';
 
 @Component({
   selector: 'app-notes-list',

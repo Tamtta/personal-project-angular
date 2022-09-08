@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { AccountService } from '../../auth/services/account.service';
+import { AccountService } from 'src/app/features/auth/services/account.service';
 
 @Component({
   selector: 'app-layout',

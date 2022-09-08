@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutComponent } from './layout/layout.component';
-import { NoteDetailsResolver } from './note-details/resolver/note-details-resolver.service';
-import { NoteDetailsComponent } from './note-details/note-details.component';
-import { NotesListComponent } from './notes-list/notes-list.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { NoteDetailsComponent } from './components/note-details/note-details.component';
+import { NoteDetailsResolver } from './components/note-details/resolver/note-details-resolver.service';
+import { NotesListComponent } from './components/notes-list/notes-list.component';
 
 const routes: Routes = [
   {

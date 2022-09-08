@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Budget } from '../interfaces/budget.class';
-import { Update } from '../interfaces/update.interface';
+import { Budget } from '../../interfaces/budget.class';
+import { Update } from '../../interfaces/update.interface';
 
 @Component({
   selector: 'app-main-page',

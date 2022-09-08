@@ -6,7 +6,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { Budget } from '../../interfaces/budget.class';
+import { Budget } from '../../../interfaces/budget.class';
 
 @Component({
   selector: 'app-budget-card',

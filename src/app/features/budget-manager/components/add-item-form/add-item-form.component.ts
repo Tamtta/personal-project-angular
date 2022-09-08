@@ -7,7 +7,7 @@ import {
   Output,
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Budget } from '../interfaces/budget.class';
+import { Budget } from '../../interfaces/budget.class';
 
 @Component({
   selector: 'app-add-item-form',

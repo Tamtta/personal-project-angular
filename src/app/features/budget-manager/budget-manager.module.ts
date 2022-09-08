@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LayoutComponent } from './layout/layout.component';
-import { HeaderComponent } from './header/header.component';
-import { MainPageComponent } from './main-page/main-page.component';
-import { AddItemFormComponent } from './add-item-form/add-item-form.component';
-import { BudgetListComponent } from './budget-list/budget-list.component';
-import { BudgetCardComponent } from './budget-list/budget-card/budget-card.component';
-import { EditComponent } from './edit/edit.component';
+import { AddItemFormComponent } from './components/add-item-form/add-item-form.component';
+import { BudgetCardComponent } from './components/budget-list/budget-card/budget-card.component';
+import { BudgetListComponent } from './components/budget-list/budget-list.component';
+import { EditComponent } from './components/edit/edit.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 import { BudgetManagerRoutingModule } from './budget-manager-routing.module';
 

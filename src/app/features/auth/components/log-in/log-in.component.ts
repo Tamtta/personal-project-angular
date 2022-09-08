@@ -3,8 +3,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, EMPTY, map, tap, throwError } from 'rxjs';
-import { IUser } from '../interfaces/auth.interface';
-import { AccountService } from '../services/account.service';
+import { IUser } from '../../interfaces/auth.interface';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-log-in',

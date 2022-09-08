@@ -7,9 +7,9 @@ import {
   Output,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Budget } from '../../interfaces/budget.class';
+import { Update } from '../../interfaces/update.interface';
 import { EditComponent } from '../edit/edit.component';
-import { Budget } from '../interfaces/budget.class';
-import { Update } from '../interfaces/update.interface';
 
 @Component({
   selector: 'app-budget-list',

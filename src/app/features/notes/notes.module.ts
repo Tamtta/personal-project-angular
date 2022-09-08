@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NotesListComponent } from './notes-list/notes-list.component';
-import { LayoutComponent } from './layout/layout.component';
-import { NoteCardComponent } from './note-card/note-card.component';
-import { NoteDetailsComponent } from './note-details/note-details.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { NoteCardComponent } from './components/note-card/note-card.component';
+import { NoteDetailsComponent } from './components/note-details/note-details.component';
+import { NotesListComponent } from './components/notes-list/notes-list.component';
 
 import { NotesRoutingModule } from './notes-routing.module';
 

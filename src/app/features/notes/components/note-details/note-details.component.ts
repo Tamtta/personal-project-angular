@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, EMPTY, Observable } from 'rxjs';
-import { Note } from '../interfaces/note.model';
-import { NotesService } from '../services/notes.service';
+import { Note } from '../../interfaces/note.model';
+import { NotesService } from '../../services/notes.service';
 
 @Component({
   selector: 'app-note-details',
