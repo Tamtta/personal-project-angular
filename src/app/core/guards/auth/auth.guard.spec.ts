@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { AuthGuard } from './auth.guard';
 
 describe('AuthGuard', () => {
@@ -12,5 +11,10 @@ describe('AuthGuard', () => {
 
   it('should be created', () => {
     expect(guard).toBeTruthy();
+  });
+
+  describe('canActivate', () => {
+    it('should pass if user is logged in', () => {});
+    it('should pass if user is logged in', () => {});
   });
 });

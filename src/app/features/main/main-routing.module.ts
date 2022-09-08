@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoggedUserGuard } from 'src/app/core/guards/logged-user.guard';
+import { LoggedUserGuard } from 'src/app/core/guards/logged-user/logged-user.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
 

@@ -29,4 +29,10 @@ describe('DashboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call services logout method on logout', () => {
+    const logoutSpy = spyOn(component['accountService'], 'logout');
+    component.logOut();
+    expect(logoutSpy).toHaveBeenCalled();
+  });
 });

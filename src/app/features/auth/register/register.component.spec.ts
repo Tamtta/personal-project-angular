@@ -1,7 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -32,5 +32,23 @@ describe('RegisterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should disable button before form is valid', () => {
+    expect(
+      fixture.debugElement.query(By.css('button')).nativeElement.disabled
+    ).toBeTruthy();
+
+    component.form.get('name')?.setValue('Tamtaaaaaaa');
+    component.form.get('username')?.setValue('wee4');
+    component.form.get('mail')?.setValue('Jojua@gmail.com');
+    component.form.get('password')?.setValue('12345678y');
+    component.form.get('confirm')?.setValue('12345678y');
+
+    fixture.detectChanges();
+
+    expect(
+      fixture.debugElement.query(By.css('button')).nativeElement.disabled
+    ).toBeFalsy();
   });
 });
