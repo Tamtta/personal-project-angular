@@ -39,6 +39,14 @@
       "password": "12345678u",
       "confirm": "12345678u",
       "id": 5
+    },
+    {
+      "name": "testUser",
+      "mail": "testUser@gmail.com",
+      "username": "testUser",
+      "password": "TestUser123",
+      "confirm": "TestUser123",
+      "id": 6
     }
   ],
   "notes": [
@@ -105,14 +113,6 @@
         "userId": 1
       },
       "id": 23
-    },
-    {
-      "note": {
-        "title": "test",
-        "body": "test note",
-        "userId": 6
-      },
-      "id": 24
     }
   ]
 }
