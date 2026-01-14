@@ -4,37 +4,130 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Advent Calendar</title>
+    
+    <style>
+
+      body {
+        margin: 0; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        flex-direction: column;
+        background-color: #FFF0F5
+      }
+      
+      h1 {
+        color: #C71585
+      }
+
+      h3 {
+        color: #6495ED
+      }
+
+      time {
+        color: #C71585
+      }
+
+      td {
+       width: 300px;
+       height: 300px
+      }
+
+      div.time {
+         width: 100%;
+         height: 10%;
+         padding: 0;
+         margin: 0;
+         display: flex; 
+         align-items: top;
+         justify-content: left;
+      }
+      
+      div.h3 {
+         width: 100%;
+         height: 20%;
+         padding: 0;
+         margin: 0;
+         display: flex; 
+         align-items: center;
+         justify-content: center; 
+      }
+
+      div.main-content {
+         width: 100%;
+         height: 70%;
+         padding: 0;
+         margin: 0;
+         display: flex; 
+         align-items: center;
+         justify-content: center; 
+      }
+      
+      div#ul-songs, div#ul-dinner {
+         width: 100%;
+         height: 70%;
+         padding: 0;
+         margin: 0;
+         display: flex; 
+         align-items: top;
+         justify-content: left;  
+      }
+
+      div#ol-presents {
+         width: 100%;
+         height: 70%;
+         padding: 0;
+         margin: 0;
+         display: flex; 
+         align-items: top;
+         justify-content: left;  
+         font-weight: bold
+      }
+
+     td#last-party {
+       font-weight: bold; 
+       color: #9932CC; 
+       text-shadow: 3px 3px 5px #6C9;
+       font-size: 20px; 
+       text-align: center; 
+       padding: 40px 100px 15px 100px; 
+       height: 15%;
+      }
+    </style>
   </head>
-  <body style="margin: 0; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-    <h1 style="color: #14B730">Christmas Advent Calendar</h1>
+  <body>
+    <h1><b>Christmas Advent Calendar</b></h1>
      <table border="1" width="900px">
   <tr>
-    <td width="320px">
-      <time datetime="2025-12-19"><strong>12/19/2025</strong></time>
-      <br>
-      <h3 style="color: #14B730">Decorate the house:</h3>
-      <br>
-      <img src="https://i.pinimg.com/originals/6e/7b/ca/6e7bca370a709bfc60a1c8f2d550c4a3.gif" alt="Room decorated for christmas" width="300">
+    <td> 
+
+<div class="time">
+      <time datetime="2025-12-19"><strong>12/19/2025</strong></time>  
+      </div>
+      <div class="h3"> <h3><u>Decorate the house:</u></h3> </div>
+     <div class="main-content"> <img src="https://i.pinimg.com/originals/6e/7b/ca/6e7bca370a709bfc60a1c8f2d550c4a3.gif" alt="Room decorated for christmas" width="300"> </div>
     </td>
-    <td width="260px">
-    <time datetime="2025-12-20"><strong>12/20/2025</strong></time>
-     <br>
-     <h3 style="list-style-type: none; padding: 0 0 0 15px; margin: 18.720px 0 35px 0"><i>Sing Christmas Songs:</i></h3>
-      <ul style="list-style-type: none; padding: 0; margin: 0 0 110px 0;">
+    <td>
+    <div class="time"> 
+      <time datetime="2025-12-20"><strong>12/20/2025</strong></time> 
+      </div>
+     
+<div class="h3"><h3><u>Sing Christmas Songs:</u></h3></div>
+     <div id="ul-songs"> <ul style="list-style-type: none; margin: 0 0 16px 0; padding: 0 0 0 30px">
         <li><a href="https://www.youtube.com/watch?v=yK23eKiQsnE" target="_blank"> Jingle Bells </a></li>
         <li><a href="https://www.youtube.com/watch?v=g-OF7KGyDis" target="_blank">We wish you a Merry Christmas</a></li>
         <li><a href="https://www.youtube.com/watch?v=nEH7_2c644Q" target="_blank">Silent Night</a></li>
         <li><a href="https://www.youtube.com/watch?v=wsB1_UGiVoU" target="_blank">Let it snow</a></li>
         <li><a href="https://www.youtube.com/watch?v=kaBRnhxPLdE" target="_blank">Last Christmas</a></li>
         <li><a href="https://www.youtube.com/watch?v=S29XiNN3MyU" target="_blank">Deck the Halls</a></li>
-</ul>
+       </ul> </div>
     </td>
-    <td width="320px">
-      <time datetime="2025-12-21"><strong>12/21/2025</strong></time>
-     <br>
-     <h3 ><u>Buy presents for:</u></h3>
-      <br>
-      <ol style="margin: 0 0 110px 0;">
+    <td>
+    <div class="time">  
+      <time datetime="2025-12-21"><strong>12/21/2025</strong></time> 
+      </div>
+      <div class="h3"><h3><u>Buy presents for:</u></h3></div>
+     <div id="ol-presents"> <ol style="margin: 0 0 16px 0;">
         <li>Parents</li>
         <li>My love.</li>
         <li>Children.</li>
@@ -42,25 +135,23 @@
         <li>Good neighbor.</li>
         <li>Colleagues.</li>
         <li>Cat.</li>
-      </ol>
+       </ol> </div>
     </td>
   </tr>
   <tr>
-    <td width="320px">
-      <time datetime="2025-12-22"><strong>12/22/2025</strong></time>
-     <br>
-    <div style="margin: 0; display: flex; justify-content: center; align-items: center;"> 
-    <h3 ><i>Watch "Home Alone":</i></h3>
-    </div>
-      <br>
-        <iframe width="100%" height="200" src="https://www.youtube.com/embed/P9FV8S5r3o8?si=gEKEtfveCbp7ymqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <td>
+      <div class="time"> 
+        <time datetime="2025-12-22"><strong>12/22/2025</strong></time>
+      </div>
+      <div class="h3"><h3><u>Watch "Home Alone":</u></h3></div>
+       <div class="main-content"> <iframe width="100%" height="100%" src="https://www.youtube.com/embed/P9FV8S5r3o8?si=gEKEtfveCbp7ymqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> </div>
       </td>
-    <td width="260px">
+    <td>
+    <div class="time">
       <time datetime="2025-12-23"><strong>12/23/2025</strong></time>
-     <br>
-     <h3 ><u>Cook Christmas Dinner:</u></h3>
-      <br>
-      <ul style="margin: 0 0 90px 0;">
+      </div>
+      <div class="h3"><h3><u>Cook Christmas Dinner:</u></h3></div>
+     <div id="ul-dinner"> <ul style="list-style-type: '🥂'; margin: 0 0 16px 0">
         <li>Turkey with stuffing</li>
         <li>Mashed potatoes</li>
         <li>Beef wellington</li>
@@ -68,26 +159,21 @@
         <li>Eggnog</li>
         <li>Apple Cider</li>
         <li>Gingerbread cookies</li>
-      </ul>
+       </ul> </div>
     </td>
-    <td width="320px">
-      <time datetime="2025-12-24"><strong>12/24/2025</strong></time>
-     <br>
-<br>
-<div style="margin: 30px 0"> 
-  <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/christmas-party-invite-design-template-b72212539237534be12419b190ea336b_screen.jpg?ts=1631791170" alt="Christmas invitation card" width="100%"> </div>
-      <div style="display: flex; justify-content: center; align-items: center; color: green">  <h3><i>Ivnite guests!</i></h3> </div>
-      <br>
-        
+    <td>
+     <div class="time"> 
+ <time datetime="2025-12-24"><strong>12/24/2025</strong></time>
+</div>
+      <div class="h3"><h3><u>Ivnite guests!</i></h3> </div>
+ <div class="main-content"> <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/christmas-party-invite-design-template-b72212539237534be12419b190ea336b_screen.jpg?ts=1631791170" alt="Christmas invitation card" width="100%" height="90%"> </div>
       </td>
   </tr>
    <tr>
-     <td colspan="3" style="font-weight: bold; color: red; font-size: 20px; text-align: center; padding: 5px 100px 20px">
+     <td colspan="3" id="last-party">
       12/25/2025: CHRISTMAS PARTY!
     </td>
   </tr>
 </table>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
   </body>
 </html>
-
