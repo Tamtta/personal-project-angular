@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,37 +7,140 @@
     <title>Miss Kimchi</title>
     
     <style>
-    p.asterisk::after {
-          content: " *";
+       body {
+        margin: 10px; 
+        background-color: #FFF0F5 
+      } 
+      
+    .asterisk::after {
+          content: "*";
           color: red;
           margin-left: 4px; 
          }
+      
+      div.forms {
+      width: 100%;
+      padding: 5px;
+      margin: 5px
+}
+
+      input[type=text], input[type=email]  {
+          background-color: white;
+          border: 1px solid #FFF0F5
+     }
+
+      input[type=text]:focus, input[type=email]:focus {
+          background-color: #f2b8c5;
+          border: 3px solid #555;
+    }
+      
+      
+      
+      div.kimchi {
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        margin: 5px;
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+}
+
+      div.kimchi_and_forms { 
+        margin: 0;
+        padding: 0;
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        flex-direction: column
+}
+
+      h1.kimchi-header {
+      color: #FFF0F5;
+      }
+      
+      div.full_name {
+        display: flex; 
+       justify-content: left;
+        align-items: center; 
+       }
+      
+      div.inside_full_name {
+      margin: 0 30px 30px 0; 
+      padding 5px; 
+      display: flex; 
+      justify-content: center;
+      align-items: center; 
+      flex-direction: column
+      }
+      
+      div.contact_details {
+       display: flex; 
+       justify-content: center;
+       align-items: center; 
+      }
+    
+div.inside_contact_details {
+      margin: 0 30px 30px 0; 
+      padding 5px; 
+      display: flex; 
+      justify-content: center;
+      align-items: center; 
+      flex-direction: column
+      }
+
     </style>
   </head>
-  <body>
-    <h1>Reservation Form</h1>
+  <body>   
+
+<div class="kimchi_and_forms">
+
+  <div class="kimchi">
+  <h1 class="kimchi-header">Miss Kimchi</h1>
+</div> 
+  
+<div class="forms"> <h1>Reservation Form</h1>
 <form action="/submit" method="post" autocomplete="off">
  
   <!-- Full name -->
-  <p class="asterisk">Full Name</p> 
+  <h3 class="asterisk">Full Name</h3> 
   
-  <label for="firt_name">First Name</label>
-  <input type="text" id="firt_name" name="firt_name" required><br><br>
+  <div class="full_name" style="background-color: green"> 
+    
+    <div class="inside_full_name">
+      <input type="text" id="firt_name" name="firt_name" required><br>
+      <label for="firt_name">First Name</label><br> 
+    </div>
  
-  <label for="middle_name">Middle Name</label>
-  <input type="text" id="middle_name" name="middle_name"><br><br>
+<div class="inside_full_name">  
+<input type="text" id="middle_name" name="middle_name"><br>
+  <label for="middle_name">Middle Name</label><br> 
+    </div>
   
-  <label for="last_name">Last Name</label>
-  <input type="text" id="last_name" name="last_name" required><br><br>
   
+<div class="inside_full_name">
+<input type="text" id="last_name" name="last_name" required><br>
+  <label for="last_name">Last Name</label><br>
+</div>
+  </div>
   
    <!-- Contact details -->
-  <label for="contact_number">Contact Number</label>
-  <input type="text" id="contact_number" name="contact_number" placeholder="(000) 000 000" required><br><br>
  
-  <label for="email">E-mail</label>
-<input type="email" id="email" name="email" placeholder="ex: myname@example.com" required> <br> <br>
+<div class="contact_details" style="background-color: red">
+
+<div class="inside_contact_details">
+ <label for="contact_number" class="asterisk">Contact Number</label><br>
+  <input type="text" id="contact_number" name="contact_number" placeholder="(000) 000 000" required>
+</div>
+ 
+  <div class="inside_contact_details">
+  <label for="email" class="asterisk">E-mail</label> <br>
+<input type="email" id="email" name="email" placeholder="ex: myname@example.com" required>
+
+</div>
   
+</div>
   <p>Please select your preferred contact method</p>
   
   <input type="radio" id="radiobtn_email" name="contact_method" value="email">
@@ -145,8 +249,12 @@
     <input type="reset" value="Reset">
 
 </form> 
+    </div>
+
+    </div>
+
+   <div id="output" class="output"></div>
     
-   <div id="output"></div>
 <script>
   const form = document.querySelector("form");
   const output = document.getElementById("output");
