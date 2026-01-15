@@ -23,12 +23,16 @@
       
       div.forms {
       padding: 5px;
-      margin: 5px
-}
+      margin: 5px;
+      border: 2px solid #f5d3e7;
+      }
 
       input[type=text], input[type=email]  {
-          background-color: white;
-          border: 1px solid #FFF0F5
+           background-color: white;
+           border: 1px solid #FFF0F5;
+           width: 100%;
+           padding: 12px;
+           border-radius: 4px;
      }
 
       input[type=text]:focus, input[type=email]:focus {
@@ -82,19 +86,66 @@
        align-items: center; 
       }
     
-div.inside_contact_details {
-      margin: 0 30px 30px 0; 
-      padding 5px; 
-      display: flex; 
-      justify-content: center;
-      align-items: center; 
-      flex-direction: column
+      div.inside_contact_details {
+            margin: 0 30px 30px 0; 
+            padding 5px; 
+            display: flex; 
+            justify-content: center;
+            align-items: center; 
+            flex-direction: column
       }
+
+      div.preferred_method {
+            margin: 0 0 30px 0; 
+            padding 5px; 
+            display: flex; 
+            justify-content: left;
+            align-items: center; 
+            gap: 15px;
+      }
+
+      div.reservation_details {
+            margin: 0 30px 30px 0; 
+            padding 5px; 
+            display: flex; 
+            justify-content: left;
+            align-items: center; 
+            gap: 40px;
+     }
+
+      div.reservation_time_and_date {
+            margin: 15px 0; 
+            padding 5px; 
+            display: flex; 
+            justify-content: left;
+            align-items: center; 
+            gap: 20px;
+      }
+
+      div.preferences_and_menus {
+            margin: 15px 0; 
+            padding 5px; 
+     }
       
       input[type="radio"] {
              accent-color: #f5d3e7; 
              transform: scale(1.5); 
       }
+      
+      input[type="checkbox"] {
+             accent-color: #f5d3e7; 
+             transform: scale(1); 
+      }
+
+       input[type="date"], 
+       input[type="time"]{
+             padding: 10px;
+             border: 2px solid #f5d3e7;
+             border-radius: 8px;
+             font-family: 'Arial', sans-serif;
+             color: #333;
+             outline: none;
+       }
       
       select {
             -webkit-appearance: none;
@@ -112,6 +163,58 @@ div.inside_contact_details {
             background-size: 12px auto;
           }
 
+         textarea {
+             width: 100%;
+             height: 150px;
+             padding: 12px;
+             border: 1px solid #ccc;
+             border-radius: 4px;
+             box-sizing: border-box;
+             resize: vertical;
+             font-family: inherit;
+             font-size: 16px;
+             margin: 20px 0;
+        }
+      
+         textarea:focus {
+             border: 2px solid #f5d3e7;
+             outline: none;
+        }
+      
+      input[type="submit"] {
+                background-color: #1ECD97;
+                color: white;
+                padding: 9px 18px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s ease;
+     }
+      
+     input[type="submit"]:hover {
+                background-color: #16a085;
+     }
+
+      input[type="reset"] {
+                background-color: #eb8881;
+                color: white;
+                padding: 6px 12px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s ease;
+     }
+      
+     input[type="reset"]:hover {
+                background-color: #ff7066;
+     }
+
+      #h1_title {
+           text-align: center;
+      }
+      
     </style>
   </head>
   <body>   
@@ -122,13 +225,13 @@ div.inside_contact_details {
   <h1 class="kimchi-header">Miss Kimchi</h1>
 </div> 
   
-<div class="forms"> <h1>Reservation Form</h1>
+<div class="forms"> <h1 id="h1_title">Table Reservation Form</h1>
 <form action="/submit" method="post" autocomplete="off">
  
   <!-- Full name -->
-  <h3 class="asterisk">Full Name</h3> 
+  <p class="asterisk">Full Name</p> 
   
-  <div class="full_name" style="background-color: green"> 
+  <div class="full_name"> 
     
     <div class="inside_full_name">
       <input type="text" id="firt_name" name="firt_name" required><br>
@@ -149,7 +252,7 @@ div.inside_contact_details {
   
    <!-- Contact details -->
  
-<div class="contact_details" style="background-color: red">
+<div class="contact_details">
 
 <div class="inside_contact_details">
  <label for="contact_number" class="asterisk">Contact Number</label><br>
@@ -163,16 +266,19 @@ div.inside_contact_details {
 </div>
   
 </div>
-  <p>Please select your preferred contact method</p>
+  <div class="preferred_method"> 
+    <div> <p>Please select your preferred contact method</p> </div>
   
-  <input type="radio" id="radiobtn_email" name="contact_method" value="email">
-  <label for="radiobtn_email" >Email</label>
+ <div> <input type="radio" id="radiobtn_email" name="contact_method" value="email">
+   <label for="radiobtn_email" >Email</label> </div>
 
-  <input type="radio" id="radiobtn_phone" name="contact_method" value="phone" checked>
-  <label for="radiobtn_phone">Phone</label>
+ <div> <input type="radio" id="radiobtn_phone" name="contact_method" value="phone" checked>
+  <label for="radiobtn_phone">Phone</label> </div>
+</div>  
   
     <!-- Reservation details -->
-   <p class="asterisk">Number of People</p>
+<div class="reservation_details"> 
+<div> <p class="asterisk">Number of People</p>
   
  <label for="number_of_people"> </label>
   <select id="number_of_people" name="number_of_people" required>
@@ -186,26 +292,33 @@ div.inside_contact_details {
   <option value="7">7</option>
   <option value="8">8</option>
 </select>
+  </div>
   
-  <p class="asterisk">Reservatiom Date & Time</p>
+  <div class="reservation_time_and_date"> <div><p class="asterisk">Reservatiom Date & Time</p></div>
   
-  <label for="reservation_date">Date</label>
+ <div> <div> <label for="reservation_date">Date</label>
   <input type="date" id="reservation_date" name="reservation_date" required><br>
-  
+    </div>
+<div>
     <label for="reservation_time">Time</label>
-  <input type="time" id="reservation_time" name="reservation_time" required><br>
+  <input type="time" id="reservation_time" name="reservation_time" required><br> </div>
+  </div> 
+  </div>
+</div>
   
-  <p>Payment Method</p>
-  <input type="radio" id="radiobtn_cash" name="payment_method" value="cash">
-  <label for="radiobtn_cash">Cash</label>
+<div class="preferred_method"> 
+<div> <p>Payment Method</p> </div>
+ <div> <input type="radio" id="radiobtn_cash" name="payment_method" value="cash">
+  <label for="radiobtn_cash">Cash</label></div>
 
-  <input type="radio" id="radiobtn_crdcash" name="payment_method" value="credit card" checked>
-  <label for="radiobtn_crdcash">Credit Card</label> <br> <br>
-
+ <div> <input type="radio" id="radiobtn_crdcash" name="payment_method" value="credit card" checked>
+  <label for="radiobtn_crdcash">Credit Card</label> <br> </div><br>
+  </div>
   
     <!-- Other preferances -->
-<p>Other Preferences (optional)</p>
+<div class="preferences_and_menus"> 
 
+<p>Other Preferences (optional)</p>
 <label>
   <input type="checkbox" name="preferences[]" value="A table by the window">
   A table by the window
@@ -230,7 +343,10 @@ div.inside_contact_details {
   <input type="checkbox" name="preferences[]" value="In a non-smoking section">
   In a non-smoking section
 </label>
+
+  </div>
   
+  <div class="preferences_and_menus"> 
   <p>Menu Types (optional)</p>
 
 <label>
@@ -257,6 +373,7 @@ div.inside_contact_details {
   <input type="checkbox" name="menus[]" value="Dessert Menu">
   Dessert Menu
 </label><br>
+  </div> 
   
 <label for="message">If you have any additional notes about this reservation, please write.</label> <br>
 <textarea
@@ -264,7 +381,7 @@ div.inside_contact_details {
   name="message"
   placeholder="Type here..."
   rows="5"
-></textarea>
+></textarea> <br>
   
 
   <input type="submit" value="Submit">
